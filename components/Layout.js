@@ -136,7 +136,7 @@ export default function Layout({ title, children }) {
           </nav>
         </header>
         <main className="container m-auto mt-16 px-4">{children}</main>
-        <footer className="flex h-10 justify-center items-center shadow-inner">
+        <footer className="flex h-10 justify-center items-center">
           <p>Copyright © 1999-2023 RD</p>
         </footer>
       </div>
