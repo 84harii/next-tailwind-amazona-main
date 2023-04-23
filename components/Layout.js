@@ -10,7 +10,7 @@ import { Store } from "../utils/Store";
 import DropdownLink from "./DropdownLink";
 import { useRouter } from "next/router";
 import SearchIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon";
-import { RiUser3Line, RiUser4Line } from "react-icons/ri";
+import { RiUser3Line } from "react-icons/ri";
 import { FiShoppingBag } from "react-icons/fi";
 
 export default function Layout({ title, children }) {
