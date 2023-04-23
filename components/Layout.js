@@ -12,10 +12,10 @@ import { useRouter } from "next/router";
 import SearchIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon";
 import { RiUser3Line } from "react-icons/ri";
 import { FiShoppingBag } from "react-icons/fi";
+import Marquee from "react-fast-marquee"; 
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
-
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -52,12 +52,27 @@ export default function Layout({ title, children }) {
       </Head>
 
       <ToastContainer position="bottom-center" limit={1} />
-
       <div className="flex min-h-screen flex-col justify-between ">
         <header>
-          <nav className="flex h-20 items-center px-4 py-2   justify-between">
+          <nav className="h-30  px-4 py-2 ">
+            <Marquee
+              pauseOnHover={true}
+              speed={46}
+              gradientWidth={46}
+              gradientColor={[255, 255, 255]}
+              gradient={true}
+            >
+              <span>
+                &nbsp;&nbsp;&nbsp;&nbsp; In pursuit of the finest , Among our
+                most popular products
+              </span>
+            </Marquee>
+            <div className="flex items-center justify-between">
             <Link href="/" className="text-lg font-bold">
-              RD
+              <img
+                src="https://i.postimg.cc/KjFnRqnt/RD-Luxurious-logo-1.png"
+                width="52"
+              />
             </Link>
             {/* <form
               onSubmit={submitHandler}
@@ -78,7 +93,7 @@ export default function Layout({ title, children }) {
               </button>
             </form> */}
 
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} className="mx-4 grow">
               <label
                 for="default-search"
                 class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -86,29 +101,11 @@ export default function Layout({ title, children }) {
                 <SearchIcon className="h-5 w-5"></SearchIcon>
               </label>
               <div class="relative">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <svg
-                    aria-hidden="true"
-                    class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    ></path>
-                  </svg>
-                </div>
-                <input 
-                  id="default-search"
-                  class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-lime-500 focus:border-lime-500  "
                 
+                <input
+                  id="default-search"
+                  class="block w-full p-2 pl-4 text-sm text-gray-900 border border-none rounded-lg bg-zinc-50 focus:ring-lime-500 focus:border-lime-500  "
                   required
-            
                   onChange={(e) => setQuery(e.target.value)}
                   type="text"
                   placeholder="Search products"
@@ -116,9 +113,9 @@ export default function Layout({ title, children }) {
                 <button
                   type="submit"
                   id="button-addon2"
-                  class="text-lime-800 absolute right-2.5 bottom-2.5 bg-lime-100 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-2 py-2"
+                  class="text-lime-800 absolute right-2.5 bottom-[0.4rem] bg-lime-100 hover:bg-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-1 py-1"
                 >
-                  <SearchIcon className="h-5 w-5"></SearchIcon>
+                  <SearchIcon className="h-4 w-4"></SearchIcon>
                 </button>
               </div>
             </form>
@@ -142,7 +139,7 @@ export default function Layout({ title, children }) {
                 <Menu as="div" className="relative inline-block">
                   <Menu.Button className="flex justify-center items-center gap-0.5 rounded bg-lime-50  p-2 font-medium rounded-lg outline-none hover:bg-lime-100 hover:text-lime-900 text-lime-900">
                     <RiUser3Line></RiUser3Line>
-                  </Menu.Button>  
+                  </Menu.Button>
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg p-2 rounded-lg">
                     <Menu.Item>
                       <DropdownLink className="dropdown-link" href="/profile">
@@ -187,18 +184,19 @@ export default function Layout({ title, children }) {
                 </Link>
               )}
             </div>
+            </div>
           </nav>
         </header>
-        <main className="container m-auto mt-16 px-4">{children}</main>
+        <main className="container m-auto mt-24 px-4">{children}</main>
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
                 <dt className="text-base leading-7 text-zinc-400">
-                  Transactions every 24 hours
+                  Happy Customers
                 </dt>
                 <dd className="order-first text-3xl font-semibold tracking-tight text-lime-900 sm:text-5xl">
-                  44 million
+                  84K
                 </dd>
               </div>
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
@@ -206,7 +204,7 @@ export default function Layout({ title, children }) {
                   Assets under holding
                 </dt>
                 <dd className="order-first text-3xl font-semibold tracking-tight text-lime-900 sm:text-5xl">
-                  $119 trillion
+                  $1 Million
                 </dd>
               </div>
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
@@ -214,7 +212,7 @@ export default function Layout({ title, children }) {
                   New users annually
                 </dt>
                 <dd className="order-first text-3xl font-semibold tracking-tight text-lime-900 sm:text-5xl">
-                  46,000
+                  4,600
                 </dd>
               </div>
             </dl>

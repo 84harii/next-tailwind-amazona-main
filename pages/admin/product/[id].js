@@ -135,7 +135,7 @@ export default function AdminProductEditScreen() {
 
   return (
     <Layout title={`Edit Product ${productId}`}>
-      <div className="grid md:grid-cols-4 md:gap-5">
+      <div className="grid md:grid-cols-4 md:gap-5 mt-4">
         <div>
           <ul>
             <li>

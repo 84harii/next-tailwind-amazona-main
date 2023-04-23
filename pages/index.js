@@ -1,14 +1,14 @@
-import axios from 'axios';
-import { useContext } from 'react';
-import { toast } from 'react-toastify';
-import Layout from '../components/Layout';
-import ProductItem from '../components/ProductItem';
-import Product from '../models/Product';
-import db from '../utils/db';
-import { Store } from '../utils/Store';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Link from 'next/link';
+import axios from "axios";
+import { useContext } from "react";
+import { toast } from "react-toastify";
+import Layout from "../components/Layout";
+import ProductItem from "../components/ProductItem";
+import Product from "../models/Product";
+import db from "../utils/db";
+import { Store } from "../utils/Store";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Link from "next/link";
 
 export default function Home({ products, featuredProducts }) {
   const { state, dispatch } = useContext(Store);
@@ -20,11 +20,11 @@ export default function Home({ products, featuredProducts }) {
     const { data } = await axios.get(`/api/products/${product._id}`);
 
     if (data.countInStock < quantity) {
-      return toast.error('Sorry. Product is out of stock');
+      return toast.error("Sorry. Product is out of stock");
     }
-    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
 
-    toast.success('Product added to the cart');
+    toast.success("Product added to the cart");
   };
 
   return (
@@ -38,8 +38,10 @@ export default function Home({ products, featuredProducts }) {
           </div>
         ))}
       </Carousel>
-      <h2 className="h2 my-4 text-2xl font-semibold text-lime-900">Our Products</h2>
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
+      <h2 className="h2 mt-4 text-2xl font-semibold text-lime-900">
+        Our Products
+      </h2> 
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4 mt-7">
         {products.map((product) => (
           <ProductItem
             product={product}

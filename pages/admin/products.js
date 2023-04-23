@@ -94,7 +94,7 @@ export default function AdminProdcutsScreen() {
   };
   return (
     <Layout title="Admin Products">
-      <div className="grid md:grid-cols-4 md:gap-5">
+      <div className="grid md:grid-cols-4 md:gap-5 mt-4">
         <div>
           <ul>
             <li>
