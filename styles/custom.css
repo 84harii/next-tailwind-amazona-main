@@ -1,8 +1,52 @@
 .rd-shadow {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
 
 nav {
-    position: fixed;
-    width: 100%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 8; 
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+:root {
+  --size: 200px;
+  --radius: calc(var(--size) * 20 / 100);
+}
+
+.image-card {
+  height: var(--size);
+  border-radius: var(--radius);
+  position: relative;
+  background-size: cover;
+  /* margin: calc(var(--size) * 20 / 100); */
+  background-position: center center;
+}
+
+.image-card:before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  background-image: inherit;
+  background-size: cover;
+  border-radius: var(--radius);
+  z-index: -1;
+  filter: blur(20px);
+  opacity: 0.6;
+  left: 50%;
+  background-position: center center;
+  transform: translate(-50%, 10%);
+}
+
+@media (max-width:425px) {
+  :root {
+    --size: 120px;
+    --radius: calc(var(--size) * 20 / 100);
+  }
 }

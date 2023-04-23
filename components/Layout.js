@@ -10,6 +10,8 @@ import { Store } from "../utils/Store";
 import DropdownLink from "./DropdownLink";
 import { useRouter } from "next/router";
 import SearchIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon";
+import { RiUser3Line, RiUser4Line } from "react-icons/ri";
+import { FiShoppingBag } from "react-icons/fi";
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -53,33 +55,82 @@ export default function Layout({ title, children }) {
 
       <div className="flex min-h-screen flex-col justify-between ">
         <header>
-          <nav className="flex h-16 items-center px-4 justify-between rd-shadow">
+          <nav className="flex h-20 items-center px-4 py-2   justify-between">
             <Link href="/" className="text-lg font-bold">
               RD
             </Link>
-            <form
+            {/* <form
               onSubmit={submitHandler}
-              className="mx-auto  hidden  justify-center md:flex"
+              className="mx-auto justify-center items-center flex"
             >
               <input
                 onChange={(e) => setQuery(e.target.value)}
                 type="text"
-                className="rounded-tr-none rounded-br-none p-1 text-sm   focus:ring-0"
+                className="rounded-tr-none rounded-br-none p-2 text-sm focus:ring-0"
                 placeholder="Search products"
               />
               <button
-                className="rounded rounded-tl-none rounded-bl-none bg-amber-300 p-1 text-sm dark:text-black"
+                className="rounded rounded-tl-none rounded-bl-none bg-lime-200 p-2 text-sm dark:text-lime-900"
                 type="submit"
                 id="button-addon2"
               >
                 <SearchIcon className="h-5 w-5"></SearchIcon>
               </button>
+            </form> */}
+
+            <form onSubmit={submitHandler}>
+              <label
+                for="default-search"
+                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+              >
+                <SearchIcon className="h-5 w-5"></SearchIcon>
+              </label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg
+                    aria-hidden="true"
+                    class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <input 
+                  id="default-search"
+                  class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-lime-500 focus:border-lime-500  dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500"
+                
+                  required
+            
+                  onChange={(e) => setQuery(e.target.value)}
+                  type="text"
+                  placeholder="Search products"
+                />
+                <button
+                  type="submit"
+                  id="button-addon2"
+                  class="text-lime-800 absolute right-2.5 bottom-2.5 bg-lime-100 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-2 py-2"
+                >
+                  <SearchIcon className="h-5 w-5"></SearchIcon>
+                </button>
+              </div>
             </form>
-            <div className="flex items-center z-10">
-              <Link href="/cart" className="p-2">
-                Cart
+
+            <div className="flex items-center z-10 ">
+              <Link
+                href="/cart"
+                className="p-2 font-medium text-lime-900 rounded-lg flex justify-center items-center mr-2 bg-lime-50 hover:bg-lime-100 hover:text-lime-900"
+              >
+                <FiShoppingBag></FiShoppingBag>
                 {cartItemsCount > 0 && (
-                  <span className="ml-1 rounded-full bg-orange-800 px-2 py-1 text-xs font-bold text-white">
+                  <span className="rounded-full px-1 py-1 text-xs font-bold text-lime-900">
                     {cartItemsCount}
                   </span>
                 )}
@@ -89,13 +140,16 @@ export default function Layout({ title, children }) {
                 "Loading"
               ) : session?.user ? (
                 <Menu as="div" className="relative inline-block">
-                  <Menu.Button className="text-blue-600">
-                    {session.user.name}
-                  </Menu.Button>
+                  <Menu.Button className="flex justify-center items-center gap-0.5 rounded bg-lime-50  p-2 font-medium rounded-lg outline-none hover:bg-lime-100 hover:text-lime-900 text-lime-900">
+                    <RiUser3Line></RiUser3Line>
+                  </Menu.Button>  
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg p-2 rounded-lg">
                     <Menu.Item>
                       <DropdownLink className="dropdown-link" href="/profile">
-                        Profile
+                        Profile{" "}
+                        <span className="bg-lime-50 px-2 rounded-lg ml-2">
+                          {session.user.name}
+                        </span>
                       </DropdownLink>
                     </Menu.Item>
                     <Menu.Item>
@@ -136,7 +190,38 @@ export default function Layout({ title, children }) {
           </nav>
         </header>
         <main className="container m-auto mt-16 px-4">{children}</main>
-        <footer className="flex h-10 justify-center items-center">
+        <div className="bg-white py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <dt className="text-base leading-7 text-zinc-400">
+                  Transactions every 24 hours
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-lime-900 sm:text-5xl">
+                  44 million
+                </dd>
+              </div>
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <dt className="text-base leading-7 text-zinc-400">
+                  Assets under holding
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-lime-900 sm:text-5xl">
+                  $119 trillion
+                </dd>
+              </div>
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <dt className="text-base leading-7 text-zinc-400">
+                  New users annually
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-lime-900 sm:text-5xl">
+                  46,000
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <footer className="flex h-10 justify-center items-center bg-lime-50  py-2 px-4 font-medium rounded-lg outline-none hover:bg-lime-100 hover:text-lime-900 text-lime-900">
           <p>Copyright © 1999-2023 RD</p>
         </footer>
       </div>

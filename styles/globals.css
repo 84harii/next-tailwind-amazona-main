@@ -14,7 +14,7 @@ h1, h2, h3 {
 }
 
 a {
-  @apply text-rd hover:text-rd-200;
+  @apply text-rd-200 hover:text-rd;
 }
 
 * {
@@ -22,11 +22,11 @@ a {
 }
 
 .card {
-  @apply mb-5  block   rounded-lg border border-none shadow-md;
+  @apply mb-5  block   rounded-lg border border-none shadow-none;
 }
 
 .primary-button {
-  @apply rounded bg-emerald-100 py-2 px-2 rounded-full outline-none hover:bg-emerald-200  active:bg-emerald-400 text-rd;
+  @apply rounded bg-lime-50  py-2 px-4 font-medium rounded-lg outline-none hover:bg-rd-200 hover:text-white text-lime-900;
 }
 .default-button {
   @apply rounded bg-gray-100 py-2  px-4 text-black shadow outline-none hover:bg-gray-200  active:bg-gray-300;
@@ -35,7 +35,7 @@ a {
 input,
 select,
 textarea {
-  @apply rounded border p-2  outline-none ring-indigo-300  focus:ring;
+  @apply rounded border p-2  outline-none focus:border-rd-200 focus:ring-1 focus:ring-rd-200;
 }
 
 .dropdown-link {
