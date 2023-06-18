@@ -96,15 +96,15 @@ export default function Layout({ title, children }) {
             <form onSubmit={submitHandler} className="mx-4 grow">
               <label
                 for="default-search"
-                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+                className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
               >
                 <SearchIcon className="h-5 w-5"></SearchIcon>
               </label>
-              <div class="relative">
+              <div className="relative">
                 
                 <input
                   id="default-search"
-                  class="block w-full p-2 pl-4 text-sm text-gray-900 border border-none rounded-lg bg-zinc-50 focus:ring-lime-500 focus:border-lime-500  "
+                  className="block w-full p-2 pl-4 text-sm text-gray-900 border border-none rounded-lg bg-zinc-50 focus:ring-lime-500 focus:border-lime-500  "
                   required
                   onChange={(e) => setQuery(e.target.value)}
                   type="text"
@@ -113,7 +113,7 @@ export default function Layout({ title, children }) {
                 <button
                   type="submit"
                   id="button-addon2"
-                  class="text-lime-800 absolute right-2.5 bottom-[0.4rem] bg-lime-100 hover:bg-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-1 py-1"
+                  className="text-lime-800 absolute right-2.5 bottom-[0.4rem] bg-lime-100 hover:bg-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-1 py-1"
                 >
                   <SearchIcon className="h-4 w-4"></SearchIcon>
                 </button>
