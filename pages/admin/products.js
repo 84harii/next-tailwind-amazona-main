@@ -78,20 +78,17 @@ export default function AdminProdcutsScreen() {
     }
   }, [successDelete]);
 
-  const deleteHandler = async (productId) => {
-    if (!window.confirm('Are you sure?')) {
-      return;
-    }
-    try {
-      dispatch({ type: 'DELETE_REQUEST' });
-      await axios.delete(`/api/admin/products/${productId}`);
-      dispatch({ type: 'DELETE_SUCCESS' });
-      toast.success('Product deleted successfully');
-    } catch (err) {
-      dispatch({ type: 'DELETE_FAIL' });
-      toast.error(getError(err));
-    }
-  };
+const deleteHandler = async (req, res) => {
+  await db.connect();
+  try {
+    await Product.deleteOne({ _id: req.query.id });
+    await db.disconnect();
+    res.send({ message: 'Product deleted successfully' });
+  } catch (error) {
+    await db.disconnect();
+    res.status(500).send({ message: 'Error deleting product' });
+  }
+};
   return (
     <Layout title="Admin Products">
       <div className="grid md:grid-cols-4 md:gap-5 mt-4">
