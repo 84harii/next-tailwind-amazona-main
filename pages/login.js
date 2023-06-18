@@ -46,7 +46,7 @@ export default function LoginScreen() {
       >
         <h1 className="mb-4 text-xl">Login</h1>
         <div className="mb-4">
-          <label htmlFor="email">Email</label>
+          <label htmlhtmlFor="email">Email</label>
           <input
             type="email"
             {...register('email', {
@@ -65,7 +65,7 @@ export default function LoginScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="password">Password</label>
+          <label htmlhtmlFor="password">Password</label>
           <input
             type="password"
             {...register('password', {

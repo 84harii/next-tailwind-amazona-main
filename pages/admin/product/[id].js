@@ -166,7 +166,7 @@ export default function AdminProductEditScreen() {
             >
               <h1 className="mb-4 text-xl">{`Edit Product ${productId}`}</h1>
               <div className="mb-4">
-                <label htmlFor="name">Name</label>
+                <label htmlhtmlFor="name">Name</label>
                 <input
                   type="text"
                   className="w-full"
@@ -181,7 +181,7 @@ export default function AdminProductEditScreen() {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="slug">Slug</label>
+                <label htmlhtmlFor="slug">Slug</label>
                 <input
                   type="text"
                   className="w-full"
@@ -195,7 +195,7 @@ export default function AdminProductEditScreen() {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="price">Price</label>
+                <label htmlhtmlFor="price">Price</label>
                 <input
                   type="text"
                   className="w-full"
@@ -209,7 +209,7 @@ export default function AdminProductEditScreen() {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="image">image</label>
+                <label htmlhtmlFor="image">image</label>
                 <input
                   type="text"
                   className="w-full"
@@ -223,7 +223,7 @@ export default function AdminProductEditScreen() {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="imageFile">Upload image</label>
+                <label htmlhtmlFor="imageFile">Upload image</label>
                 <input
                   type="file"
                   className="w-full"
@@ -234,7 +234,7 @@ export default function AdminProductEditScreen() {
                 {loadingUpload && <div>Uploading....</div>}
               </div>
               <div className="mb-4">
-                <label htmlFor="category">category</label>
+                <label htmlhtmlFor="category">category</label>
                 <input
                   type="text"
                   className="w-full"
@@ -248,7 +248,7 @@ export default function AdminProductEditScreen() {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="brand">brand</label>
+                <label htmlhtmlFor="brand">brand</label>
                 <input
                   type="text"
                   className="w-full"
@@ -262,7 +262,7 @@ export default function AdminProductEditScreen() {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="countInStock">countInStock</label>
+                <label htmlhtmlFor="countInStock">countInStock</label>
                 <input
                   type="text"
                   className="w-full"
@@ -278,7 +278,7 @@ export default function AdminProductEditScreen() {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="countInStock">description</label>
+                <label htmlhtmlFor="countInStock">description</label>
                 <input
                   type="text"
                   className="w-full"

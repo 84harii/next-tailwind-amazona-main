@@ -52,7 +52,7 @@ export default function ProfileScreen() {
         <h1 className="mb-4 text-xl">Update Profile</h1>
 
         <div className="mb-4">
-          <label htmlFor="name">Name</label>
+          <label htmlhtmlFor="name">Name</label>
           <input
             type="text"
             className="w-full"
@@ -68,7 +68,7 @@ export default function ProfileScreen() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="email">Email</label>
+          <label htmlhtmlFor="email">Email</label>
           <input
             type="email"
             className="w-full"
@@ -87,7 +87,7 @@ export default function ProfileScreen() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="password">New Password</label>
+          <label htmlhtmlFor="password">New Password</label>
           <input
             className="w-full"
             type="password"
@@ -103,7 +103,7 @@ export default function ProfileScreen() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="confirmPassword">Confirm New Password</label>
+          <label htmlhtmlFor="confirmPassword">Confirm New Password</label>
           <input
             className="w-full"
             type="password"

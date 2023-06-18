@@ -22,7 +22,7 @@ const deleteHandler = async (req, res) => {
     if (user.email === 'admin@example.com') {
       return res.status(400).send({ message: 'Can not delete admin' });
     }
-    await user.remove();
+    await user.deleteOne();
     await db.disconnect();
     res.send({ message: 'User Deleted' });
   } else {

@@ -54,7 +54,7 @@ export default function PaymentScreen() {
               onChange={() => setSelectedPaymentMethod(payment)}
             />
 
-            <label className="p-2" htmlFor={payment}>
+            <label className="p-2" htmlhtmlFor={payment}>
               {payment}
             </label>
           </div>

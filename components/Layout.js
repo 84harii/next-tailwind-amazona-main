@@ -95,7 +95,7 @@ export default function Layout({ title, children }) {
 
             <form onSubmit={submitHandler} className="mx-4 grow">
               <label
-                for="default-search"
+                htmlFor="default-search"
                 className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
               >
                 <SearchIcon className="h-5 w-5"></SearchIcon>
