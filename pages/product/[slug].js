@@ -17,18 +17,18 @@ export default function ProductScreen(props) {
     return <Layout title="Produt Not Found">Produt Not Found</Layout>;
   }
 
-  const addToCartHandler = async () => {
-    const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
-    const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${product._id}`);
+  // const addToCartHandler = async () => {
+  //   const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+  //   const quantity = existItem ? existItem.quantity + 1 : 1;
+  //   const { data } = await axios.get(`/api/products/${product._id}`);
 
-    if (data.countInStock < quantity) {
-      return toast.error('Sorry. Product is out of stock');
-    }
+  //   if (data.countInStock < quantity) {
+  //     return toast.error('Sorry. Product is out of stock');
+  //   }
 
-    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
-    router.push('/cart');
-  };
+  //   dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+  //   router.push('/cart');
+  // };
 
   return (
     <Layout title={product.name}>

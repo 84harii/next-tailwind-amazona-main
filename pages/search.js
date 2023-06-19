@@ -90,17 +90,17 @@ export default function Search(props) {
   };
 
   const { state, dispatch } = useContext(Store);
-  const addToCartHandler = async (product) => {
-    const existItem = state.cart.cartItems.find((x) => x._id === product._id);
-    const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${product._id}`);
-    if (data.countInStock < quantity) {
-      toast.error('Sorry. Product is out of stock');
-      return;
-    }
-    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
-    router.push('/cart');
-  };
+  // const addToCartHandler = async (product) => {
+  //   const existItem = state.cart.cartItems.find((x) => x._id === product._id);
+  //   const quantity = existItem ? existItem.quantity + 1 : 1;
+  //   const { data } = await axios.get(`/api/products/${product._id}`);
+  //   if (data.countInStock < quantity) {
+  //     toast.error('Sorry. Product is out of stock');
+  //     return;
+  //   }
+  //   dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+  //   router.push('/cart');
+  // };
   return (
     <Layout title="search">
       <div className="grid md:grid-cols-4 md:gap-5 mt-4">
@@ -195,7 +195,7 @@ export default function Search(props) {
                 <ProductItem
                   key={product._id}
                   product={product}
-                  addToCartHandler={addToCartHandler}
+                  // addToCartHandler={addToCartHandler}
                 />
               ))}
             </div>
