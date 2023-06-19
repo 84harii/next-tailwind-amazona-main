@@ -159,7 +159,7 @@ export default function Search(props) {
           </div>
         </div>
         <div className="md:col-span-3">
-          <div className="mb-2 flex items-center justify-between border-b-2 pb-2">
+          <div className="mb-2 flex items-center justify-center border-b-2 pb-2">
             <div className="flex items-center">
               {products.length === 0 ? 'No' : countProducts} Results
               {query !== 'all' && query !== '' && ' : ' + query}

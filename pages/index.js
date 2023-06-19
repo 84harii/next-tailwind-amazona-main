@@ -38,7 +38,7 @@ export default function Home({ products, featuredProducts }) {
           </div>
         ))}
       </Carousel>
-      <h2 className="h2 mt-4 text-2xl font-semibold text-lime-900">
+      <h2 className="h2 mt-10 text-2xl font-semibold text-lime-900 text-center">
         Our Products
       </h2> 
       <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4 mt-7">

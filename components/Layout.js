@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import SearchIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon";
 import { RiUser3Line } from "react-icons/ri";
 import { FiShoppingBag } from "react-icons/fi";
-import Marquee from "react-fast-marquee"; 
+import Marquee from "react-fast-marquee";
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -54,27 +54,80 @@ export default function Layout({ title, children }) {
       <ToastContainer position="bottom-center" limit={1} />
       <div className="flex min-h-screen flex-col justify-between ">
         <header>
-          <nav className="h-30  px-4 py-2 ">
-            <Marquee
-              pauseOnHover={true}
-              speed={46}
-              gradientWidth={46}
-              gradientColor={[255, 255, 255]}
-              gradient={true}
-            >
-              <span>
-                &nbsp;&nbsp;&nbsp;&nbsp; In pursuit of the finest , Among our
-                most popular products
+          <nav className="h-30 px-4 py-2 max-w-screen-2xl mx-auto">
+
+            <a href="/search?query=" class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-0 text-sm text-lime-700 bg-lime-100 rounded-full dark:bg-lime-100 dark:text-lime-900 hover:bg-lime-200 dark:hover:bg-lime-100">
+              <span class="text-xs bg-lime-900 rounded-full text-white px-4 py-1.5 mr-3">Welcome</span> <span class="text-sm font-medium">
+                <Marquee
+                  pauseOnHover={true}
+                  speed={46}
+                  gradientWidth={46}
+                  gradientColor={[255, 255, 255]}
+                  gradient={false}
+                >
+                  <span>
+                    &nbsp;&nbsp;&nbsp;&nbsp; In pursuit of the finest , Among our
+                    most popular products
+                  </span>
+                </Marquee>
               </span>
-            </Marquee>
-            <div className="flex items-center justify-between">
-            <Link href="/" className="text-lg font-bold">
+              <svg aria-hidden="true" class="ml-2 w-20 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+            </a>
+
+
+
+
+            <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+            <div class="flex h-16 justify-between">
+              <div class="flex lg:px-0">
+                <div class="flex flex-shrink-0 items-center">
+                  <Link href="/" >
+                    <img class="block h-12 w-auto" src="https://i.postimg.cc/KjFnRqnt/RD-Luxurious-logo-1.png"
+                      alt="RD" />
+                  </Link>
+                </div>
+              </div>
+              <div class="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
+                <div class="w-full max-w-lg lg:max-w-xs">
+                  <div class="relative"> 
+                    <form onSubmit={submitHandler} >
+                      <label
+                        htmlFor="default-search"
+                        className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+                      >
+                        <SearchIcon className="h-5 w-5"></SearchIcon>
+                      </label>
+                      <div className="w-auto flex">
+                        <input id="default-search" name="search"
+                          class="block border-none italic w-full text-black rounded-md bg-gray-50 rounded-lg bg-white mx-2 py-2 pl-3 pr-3 leading-5 placeholder-gray-500 text-sm"
+                          placeholder="Search product" type="search"  required
+                          onChange={(e) => setQuery(e.target.value)} />
+ 
+                        <button
+                          type="submit"
+                          id="button-addon2"
+                          className="text-lime-800 bg-gray-50 hover:bg-white focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-2 py-2"
+                        >
+                          <SearchIcon className="h-4 w-4"></SearchIcon>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+            {/* <Link href="/" className="text-lg font-bold flex items-center justify-center w-1/4 mb-2">
               <img
                 src="https://i.postimg.cc/KjFnRqnt/RD-Luxurious-logo-1.png"
                 width="52"
               />
             </Link>
-            {/* <form
+            <div className="flex items-center justify-center w-3/4">  
               onSubmit={submitHandler}
               className="mx-auto justify-center items-center flex"
             >
@@ -93,34 +146,33 @@ export default function Layout({ title, children }) {
               </button>
             </form> */}
 
-            <form onSubmit={submitHandler} className="mx-4 grow">
-              <label
-                htmlFor="default-search"
-                className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-              >
-                <SearchIcon className="h-5 w-5"></SearchIcon>
-              </label>
-              <div className="relative">
-                
-                <input
-                  id="default-search"
-                  className="block w-full p-2 pl-4 text-sm text-gray-900 border border-none rounded-lg bg-zinc-50 focus:ring-lime-500 focus:border-lime-500  "
-                  required
-                  onChange={(e) => setQuery(e.target.value)}
-                  type="text"
-                  placeholder="Search products"
-                />
-                <button
-                  type="submit"
-                  id="button-addon2"
-                  className="text-lime-800 absolute right-2.5 bottom-[0.4rem] bg-lime-100 hover:bg-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-1 py-1"
+            {/* <form onSubmit={submitHandler} className="grow">
+                <label
+                  htmlFor="default-search"
+                  className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
                 >
-                  <SearchIcon className="h-4 w-4"></SearchIcon>
-                </button>
-              </div>
-            </form>
+                  <SearchIcon className="h-5 w-5"></SearchIcon>
+                </label>
+                <div className="w-auto flex">
+                  <input
+                    id="default-search"
+                    className="block w-90 p-2 pl-4 text-sm text-gray-900 border border-none rounded-lg bg-[#f3f3f3] focus:none focus:none"
+                    required
+                    onChange={(e) => setQuery(e.target.value)}
+                    type="text"
+                    placeholder="Search products"
+                  />
+                  <button
+                    type="submit"
+                    id="button-addon2"
+                    className="text-lime-800  hover:bg-white focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-1 py-1"
+                  >
+                    <SearchIcon className="h-4 w-4"></SearchIcon>
+                  </button>
+                </div>
+              </form> */}
 
-            <div className="flex items-center z-10 ">
+            {/* <div className="flex items-center z-10 ">
               <Link
                 href="/cart"
                 className="p-2 font-medium text-lime-900 rounded-lg flex justify-center items-center mr-2 bg-lime-50 hover:bg-lime-100 hover:text-lime-900"
@@ -183,44 +235,60 @@ export default function Layout({ title, children }) {
                   Login
                 </Link>
               )}
-            </div>
-            </div>
+            </div> 
+            </div>*/}
           </nav>
+ 
+
         </header>
+
+
         <main className="container m-auto mt-24 px-4">{children}</main>
-        <div className="bg-white py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
-              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base leading-7 text-zinc-400">
-                  Happy Customers
-                </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-lime-900 sm:text-5xl">
-                  84K
-                </dd>
+
+        <div class="bg-slate-50">
+          <div class="mx-auto max-w-7xl py-8 sm:px-2 sm:py-32 lg:px-4">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-y-10 gap-x-8 px-5 lg:max-w-none lg:grid-cols-3">
+              <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
+                <div class="sm:flex-shrink-0">
+                  <div class="flow-root">
+                    <img class="mx-auto h-20 w-24" src="https://tailwindui.com/img/ecommerce/icons/icon-delivery-light.svg" alt="" />
+                  </div>
+                </div>
+                <div class="mt-3 sm:mt-0 sm:ml-3 lg:mt-3 lg:ml-0">
+                  <h3 class="text-md font-medium text-gray-900">Free Shipping</h3>
+                  <p class="mt-2 text-sm text-gray-500">It&#039;s not actually free we just price it into the products. Someone&#039;s paying for it, and it&#039;s not us.</p>
+                </div>
               </div>
-              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base leading-7 text-zinc-400">
-                  Assets under holding
-                </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-lime-900 sm:text-5xl">
-                  $1 Million
-                </dd>
+
+              <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
+                <div class="sm:flex-shrink-0">
+                  <div class="flow-root">
+                    <img class="mx-auto h-20 w-24" src="https://tailwindui.com/img/ecommerce/icons/icon-chat-light.svg" alt="" />
+                  </div>
+                </div>
+                <div class="mt-3 sm:mt-0 sm:ml-3 lg:mt-3 lg:ml-0">
+                  <h3 class="text-md font-medium text-gray-900">24/7 Customer Support</h3>
+                  <p class="mt-2 text-sm text-gray-500">Our AI chat widget is powered by a naive series of if/else statements. Guaranteed to irritate.</p>
+                </div>
               </div>
-              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base leading-7 text-zinc-400">
-                  New users annually
-                </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-lime-900 sm:text-5xl">
-                  4,600
-                </dd>
+
+              <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
+                <div class="sm:flex-shrink-0">
+                  <div class="flow-root">
+                    <img class="mx-auto h-20 w-24" src="https://tailwindui.com/img/ecommerce/icons/icon-fast-checkout-light.svg" alt="" />
+                  </div>
+                </div>
+                <div class="mt-3 sm:mt-0 sm:ml-3 lg:mt-3 lg:ml-0">
+                  <h3 class="text-md font-medium text-gray-900">Fast Shopping Cart</h3>
+                  <p class="mt-2 text-sm text-gray-500">Look how fast that cart is going. What does this mean for the actual experience? I don&#039;t know.</p>
+                </div>
               </div>
-            </dl>
+            </div>
           </div>
         </div>
-
-        <footer className="flex h-10 justify-center items-center bg-lime-50  py-2 px-4 font-medium rounded-lg outline-none hover:bg-lime-100 hover:text-lime-900 text-lime-900">
-          <p>Copyright © 1999-2023 RD</p>
+ 
+        <footer className="flex h-10 justify-center items-center bg-lime-50  py-2 px-4 font-medium rounded-lg outline-none hover:bg-lime-100 hover:text-lime-900 text-lime-900 text-sm">
+          <p><a href="/login">Copyright</a> © <a href="/admin/dashboard">1999-2023 RD</a></p>
         </footer>
       </div>
     </>
