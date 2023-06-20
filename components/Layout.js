@@ -1,8 +1,8 @@
-import { signOut, useSession } from "next-auth/react";
+// import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 // import Cookies from "js-cookie";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { ToastContainer } from "react-toastify";
 // import { Menu } from "@headlessui/react";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,8 +16,8 @@ import Marquee from "react-fast-marquee";
 
 export default function Layout({ title, children }) {
   // const { status, data: session } = useSession();
-  const { state, dispatch } = useContext(Store);
-  const { cart } = state;
+  const { state } = useContext(Store);
+  // const { cart } = state;
   // const [cartItemsCount, setCartItemsCount] = useState(0);
   // useEffect(() => {
   //   setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));

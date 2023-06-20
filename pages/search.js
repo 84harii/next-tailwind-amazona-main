@@ -1,7 +1,7 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import Layout from '../components/Layout';
 import { Store } from '../utils/Store';
 import XCircleIcon from '@heroicons/react/24/outline/XCircleIcon';
@@ -89,7 +89,7 @@ export default function Search(props) {
     filterSearch({ rating: e.target.value });
   };
 
-  const { state, dispatch } = useContext(Store);
+  // const { state, dispatch } = useContext(Store);
   // const addToCartHandler = async (product) => {
   //   const existItem = state.cart.cartItems.find((x) => x._id === product._id);
   //   const quantity = existItem ? existItem.quantity + 1 : 1;
