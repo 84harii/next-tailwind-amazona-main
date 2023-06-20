@@ -1,6 +1,6 @@
-import axios from "axios";
+// import axios from "axios";
 import { useContext } from "react";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import Layout from "../components/Layout";
 import ProductItem from "../components/ProductItem";
 import Product from "../models/Product";
@@ -11,8 +11,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Link from "next/link";
 
 export default function Home({ products, featuredProducts }) {
-  const { state, dispatch } = useContext(Store);
-  const { cart } = state;
+  // const { state, dispatch } = useContext(Store);
+  // const { cart } = state;
 
   // const addToCartHandler = async (product) => {
   //   const existItem = cart.cartItems.find((x) => x.slug === product.slug);

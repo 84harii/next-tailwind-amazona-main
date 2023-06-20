@@ -1,33 +1,33 @@
 import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import React, { useContext, useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
-import { Menu } from "@headlessui/react";
+// import { Menu } from "@headlessui/react";
 import "react-toastify/dist/ReactToastify.css";
 import { Store } from "../utils/Store";
-import DropdownLink from "./DropdownLink";
+// import DropdownLink from "./DropdownLink";
 import { useRouter } from "next/router";
 import SearchIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon";
-import { RiUser3Line } from "react-icons/ri";
-import { FiShoppingBag } from "react-icons/fi";
+// import { RiUser3Line } from "react-icons/ri";
+// import { FiShoppingBag } from "react-icons/fi";
 import Marquee from "react-fast-marquee";
 
 export default function Layout({ title, children }) {
-  const { status, data: session } = useSession();
+  // const { status, data: session } = useSession();
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
-  const [cartItemsCount, setCartItemsCount] = useState(0);
-  useEffect(() => {
-    setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
-  }, [cart.cartItems]);
+  // const [cartItemsCount, setCartItemsCount] = useState(0);
+  // useEffect(() => {
+  //   setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
+  // }, [cart.cartItems]);
 
-  const logoutClickHandler = () => {
-    Cookies.remove("cart");
-    dispatch({ type: "CART_RESET" });
-    signOut({ callbackUrl: "/login" });
-  };
+  // const logoutClickHandler = () => {
+  //   Cookies.remove("cart");
+  //   dispatch({ type: "CART_RESET" });
+  //   signOut({ callbackUrl: "/login" });
+  // };
 
   const [query, setQuery] = useState("");
 
@@ -44,7 +44,7 @@ export default function Layout({ title, children }) {
         <meta name="description" content="Ecommerce Website" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
           href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Syne:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
@@ -56,8 +56,8 @@ export default function Layout({ title, children }) {
         <header>
           <nav className="h-30 px-4 py-2 max-w-screen-2xl mx-auto">
 
-            <a href="/search?query=" class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-0 text-sm text-lime-700 bg-lime-100 rounded-full dark:bg-lime-100 dark:text-lime-900 hover:bg-lime-200 dark:hover:bg-lime-100">
-              <span class="text-xs bg-lime-900 rounded-full text-white px-4 py-1.5 mr-3">Welcome</span> <span class="text-sm font-medium">
+            <a href="/search?query=" className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-0 text-sm text-lime-700 bg-lime-100 rounded-full dark:bg-lime-100 dark:text-lime-900 hover:bg-lime-200 dark:hover:bg-lime-100">
+              <span className="text-xs bg-lime-900 rounded-full text-white px-4 py-1.5 mr-3">Welcome</span> <span className="text-sm font-medium">
                 <Marquee
                   pauseOnHover={true}
                   speed={46}
@@ -71,25 +71,25 @@ export default function Layout({ title, children }) {
                   </span>
                 </Marquee>
               </span>
-              <svg aria-hidden="true" class="ml-2 w-20 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+              <svg aria-hidden="true" className="ml-2 w-20 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
             </a>
 
 
 
 
-            <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
-            <div class="flex h-16 justify-between">
-              <div class="flex lg:px-0">
-                <div class="flex flex-shrink-0 items-center">
+            <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+            <div className="flex h-16 justify-between">
+              <div className="flex lg:px-0">
+                <div className="flex flex-shrink-0 items-center">
                   <Link href="/" >
-                    <img class="block h-12 w-auto" src="https://i.postimg.cc/KjFnRqnt/RD-Luxurious-logo-1.png"
+                    <img className="block h-12 w-auto" src="https://i.postimg.cc/KjFnRqnt/RD-Luxurious-logo-1.png"
                       alt="RD" />
                   </Link>
                 </div>
               </div>
-              <div class="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
-                <div class="w-full max-w-lg lg:max-w-xs">
-                  <div class="relative"> 
+              <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
+                <div className="w-full max-w-lg lg:max-w-xs">
+                  <div className="relative"> 
                     <form onSubmit={submitHandler} >
                       <label
                         htmlFor="default-search"
@@ -99,7 +99,7 @@ export default function Layout({ title, children }) {
                       </label>
                       <div className="w-auto flex">
                         <input id="default-search" name="search"
-                          class="block border-none italic w-full text-black rounded-md bg-gray-50 rounded-lg bg-white mx-2 py-2 pl-3 pr-3 leading-5 placeholder-gray-500 text-sm"
+                          className="block border-none italic w-full text-black rounded-md bg-gray-50 rounded-lg bg-white mx-2 py-2 pl-3 pr-3 leading-5 placeholder-gray-500 text-sm"
                           placeholder="Search product" type="search"  required
                           onChange={(e) => setQuery(e.target.value)} />
  
@@ -245,42 +245,42 @@ export default function Layout({ title, children }) {
 
         <main className="container m-auto mt-24 px-4">{children}</main>
 
-        <div class="bg-slate-50">
-          <div class="mx-auto max-w-7xl py-8 sm:px-2 sm:py-32 lg:px-4">
-            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-y-10 gap-x-8 px-5 lg:max-w-none lg:grid-cols-3">
-              <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-                <div class="sm:flex-shrink-0">
-                  <div class="flow-root">
-                    <img class="mx-auto h-20 w-24" src="https://tailwindui.com/img/ecommerce/icons/icon-delivery-light.svg" alt="" />
+        <div className="bg-slate-50">
+          <div className="mx-auto max-w-7xl py-8 sm:px-2 sm:py-32 lg:px-4">
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-10 gap-x-8 px-5 lg:max-w-none lg:grid-cols-3">
+              <div className="text-center sm:flex sm:text-left lg:block lg:text-center">
+                <div className="sm:flex-shrink-0">
+                  <div className="flow-root">
+                    <img className="mx-auto h-20 w-24" src="https://tailwindui.com/img/ecommerce/icons/icon-delivery-light.svg" alt="" />
                   </div>
                 </div>
-                <div class="mt-3 sm:mt-0 sm:ml-3 lg:mt-3 lg:ml-0">
-                  <h3 class="text-md font-medium text-gray-900">Free Shipping</h3>
-                  <p class="mt-2 text-sm text-gray-500">It&#039;s not actually free we just price it into the products. Someone&#039;s paying for it, and it&#039;s not us.</p>
+                <div className="mt-3 sm:mt-0 sm:ml-3 lg:mt-3 lg:ml-0">
+                  <h3 className="text-md font-medium text-gray-900">Free Shipping</h3>
+                  <p className="mt-2 text-sm text-gray-500">It&#039;s not actually free we just price it into the products. Someone&#039;s paying for it, and it&#039;s not us.</p>
                 </div>
               </div>
 
-              <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-                <div class="sm:flex-shrink-0">
-                  <div class="flow-root">
-                    <img class="mx-auto h-20 w-24" src="https://tailwindui.com/img/ecommerce/icons/icon-chat-light.svg" alt="" />
+              <div className="text-center sm:flex sm:text-left lg:block lg:text-center">
+                <div className="sm:flex-shrink-0">
+                  <div className="flow-root">
+                    <img className="mx-auto h-20 w-24" src="https://tailwindui.com/img/ecommerce/icons/icon-chat-light.svg" alt="" />
                   </div>
                 </div>
-                <div class="mt-3 sm:mt-0 sm:ml-3 lg:mt-3 lg:ml-0">
-                  <h3 class="text-md font-medium text-gray-900">24/7 Customer Support</h3>
-                  <p class="mt-2 text-sm text-gray-500">Our AI chat widget is powered by a naive series of if/else statements. Guaranteed to irritate.</p>
+                <div className="mt-3 sm:mt-0 sm:ml-3 lg:mt-3 lg:ml-0">
+                  <h3 className="text-md font-medium text-gray-900">24/7 Customer Support</h3>
+                  <p className="mt-2 text-sm text-gray-500">Our AI chat widget is powered by a naive series of if/else statements. Guaranteed to irritate.</p>
                 </div>
               </div>
 
-              <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-                <div class="sm:flex-shrink-0">
-                  <div class="flow-root">
-                    <img class="mx-auto h-20 w-24" src="https://tailwindui.com/img/ecommerce/icons/icon-fast-checkout-light.svg" alt="" />
+              <div className="text-center sm:flex sm:text-left lg:block lg:text-center">
+                <div className="sm:flex-shrink-0">
+                  <div className="flow-root">
+                    <img className="mx-auto h-20 w-24" src="https://tailwindui.com/img/ecommerce/icons/icon-fast-checkout-light.svg" alt="" />
                   </div>
                 </div>
-                <div class="mt-3 sm:mt-0 sm:ml-3 lg:mt-3 lg:ml-0">
-                  <h3 class="text-md font-medium text-gray-900">Fast Shopping Cart</h3>
-                  <p class="mt-2 text-sm text-gray-500">Look how fast that cart is going. What does this mean for the actual experience? I don&#039;t know.</p>
+                <div className="mt-3 sm:mt-0 sm:ml-3 lg:mt-3 lg:ml-0">
+                  <h3 className="text-md font-medium text-gray-900">Fast Shopping Cart</h3>
+                  <p className="mt-2 text-sm text-gray-500">Look how fast that cart is going. What does this mean for the actual experience? I don&#039;t know.</p>
                 </div>
               </div>
             </div>
