@@ -20,15 +20,18 @@
     "mongoose": "^7.0.3",
     "next": "13.3.0",
     "next-auth": "^4.22.0",
+    "random-int": "^3.0.0",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
+    "react-collapsible": "^2.10.0",
     "react-confetti": "^6.1.0",
     "react-dom": "18.2.0",
     "react-fast-marquee": "^1.4.0",
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "react-responsive-carousel": "^3.2.23",
-    "react-toastify": "^9.1.2"
+    "react-toastify": "^9.1.2",
+    "use-count-up": "^3.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.34",

@@ -7,10 +7,24 @@ import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import Product from '../../models/Product';
 import db from '../../utils/db';
-// import { Store } from '../../utils/Store';
+// import { Store } from '../../utils/Store'; 
+import Collapsible from 'react-collapsible';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { CountUp } from 'use-count-up'
 
 export default function ProductScreen(props) {
   const { product } = props;
+  const [randomNumber, setRandomNumber] = useState(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const random = Math.floor(Math.random() * (20 - 10 + 1)) + 10; // Generate a random number between 10 and 20
+      setRandomNumber(random);
+    }, 1608); // Set the interval to 1 second
+
+    return () => clearInterval(interval); // Clean up the interval on component unmount
+  }, []);
   // const { state, dispatch } = useContext(Store);
   // const router = useRouter();
   if (!product) {
@@ -38,13 +52,13 @@ export default function ProductScreen(props) {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
             </svg>
-            Back to home
+            Back to home  
           </button>
         </Link>
       </div>
 
 
-      <div className="grid md:grid-cols-4 md:gap-3">
+      <div className="grid md:grid-cols-3 md:gap-3">
         <div className="md:col-span-2" >
           <Image
             src={product.image}
@@ -58,6 +72,7 @@ export default function ProductScreen(props) {
             }}
           ></Image>
         </div>
+         
         <div>
           <div className="block w-full p-6 bg-zinc-50 rounded-lg">
             <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-800">{product.name}</h1>
@@ -72,29 +87,37 @@ export default function ProductScreen(props) {
                   <span>Brand:</span>
                   <span>{product.brand}</span>
                 </div>
-                <div>
-                  <div className="flex items-center">
-                    <svg aria-hidden="true" className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    <p className="ml-2 text-sm font-bold text-gray-700">4.95</p>
-                    <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full"></span>
-                    <a href="#" className="text-sm font-medium text-gray-900 underline hover:no-underline">84 reviews</a>
-                  </div>
+                <div className="mb-2 mt-6 flex justify-between text-gray-500">
+                  <span>
+                    <div className="flex items-center">
+                      <svg aria-hidden="true" className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <p className="ml-2 text-sm font-bold text-gray-700">4.95</p>
+                      {/* <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full"></span>
+                      <a href="#" className="text-sm font-medium text-gray-900 underline hover:no-underline">84 reviews</a> */}
+                    </div>
+                  </span>
+                  <span>Peoples Watching Right Now : {randomNumber}</span>
                 </div>
-              </div>
-              <span>Description: <div className='text-gray-500'>{product.description}</div></span>
+              </div> 
+             
+              <Collapsible trigger="See All Product Details +">
+                <div>
+                {product.description} 
+                </div>
+               </Collapsible> 
             </p>
           </div>
-        </div>
-
-        <div>
+          <div>
           <div className="card p-5">
             <div className="mb-2 flex justify-between">
               <div>Price</div>
-              <div>₹{product.price}</div>
+              <div className='text-3xl'>₹
+              <CountUp isCounting end={product.price} duration={2} />
+              </div>
             </div>
             <div className="mb-2 flex justify-between">
               <div>Status</div>
-              <div>{product.countInStock > 0 ? 'In stock' : 'Unavailable'}</div>
+              <div>{product.countInStock > 0 ? 'In Stock' : 'Unavailable'}</div>
             </div>
             {/* <button
               className="primary-button w-full"
@@ -104,11 +127,14 @@ export default function ProductScreen(props) {
             </button> */}
             <Link href={`https://rzp.io//l/${product.slug}`} className="inline-flex items-center justify-center mx-auto mt-4 text-gray-100 hover:text-gray-200 hover:bg-lime-800 bg-lime-900  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
               Order Now at<span className="inline-flex items-center justify-center px-2 py-2 w-auto h-4 ml-2 text-xs font-semibold text-lime-900 bg-white rounded-full">
-                ₹ {product.price}
+                ₹ {product.price} 
               </span>
             </Link>
           </div>
         </div>
+        </div>
+
+       
       </div>
 
       {/* ------------------------------------------------ Review ------------------------------------------------ */}

@@ -2,7 +2,7 @@
 import Head from "next/head";
 import Link from "next/link";
 // import Cookies from "js-cookie";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react"; 
 import { ToastContainer } from "react-toastify";
 // import { Menu } from "@headlessui/react";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,10 +13,40 @@ import SearchIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon";
 // import { RiUser3Line } from "react-icons/ri";
 // import { FiShoppingBag } from "react-icons/fi";
 import Marquee from "react-fast-marquee";
+import Confetti from "react-confetti";
+
+
+// function getWindowDimensions() {
+//   const { innerWidth: width, innerHeight: height } = window;
+//   return {
+//     width,
+//     height,
+//   };
+// }
+
+// function useWindowDimensions() {
+//   const [windowDimensions, setWindowDimensions] = useState(
+//     getWindowDimensions()
+//   );
+
+//   useEffect(() => {
+//     function handleResize() {
+//       setWindowDimensions(getWindowDimensions());
+//     }
+
+//     window.addEventListener("resize", handleResize);
+//     return () => window.removeEventListener("resize", handleResize);
+//   }, []);
+
+//   return windowDimensions;
+// }
+
+
 
 export default function Layout({ title, children }) {
   // const { status, data: session } = useSession();
   const { state } = useContext(Store);
+  // const { height, width } = useWindowDimensions();
   // const { cart } = state;
   // const [cartItemsCount, setCartItemsCount] = useState(0);
   // useEffect(() => {
@@ -36,6 +66,27 @@ export default function Layout({ title, children }) {
     e.preventDefault();
     router.push(`/search?query=${query}`);
   };
+
+
+  const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const updateScreenSize = () => {
+      setScreenSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    // Add event listener to update the screen size when it changes
+    window.addEventListener('resize', updateScreenSize);
+
+    // Initial screen size on component mount
+    updateScreenSize();
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', updateScreenSize);
+    };
+  }, []);
+
 
   return (
     <>
@@ -74,7 +125,26 @@ export default function Layout({ title, children }) {
               <svg aria-hidden="true" className="ml-2 w-20 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
             </a>
 
-
+            <Confetti
+            width={screenSize.width}
+            height={screenSize.height}
+            numberOfPieces={2000}
+            recycle={false}
+            colors={[
+              "#111B21",
+              "#024b40",
+              "#2b7755",
+              "#62a462",
+              "#a6cf69",
+              "#A6CF69",
+              "#6EBF70",
+              "#2DAC7A",
+              "#009882",
+              "#008386",
+              "#006D84",
+              "#155300",
+          ]}
+        />
 
 
             <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
