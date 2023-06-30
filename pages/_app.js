@@ -5,6 +5,7 @@ import { StoreProvider } from '../utils/Store';
 import { useRouter } from 'next/router';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import NextNProgress from 'nextjs-progressbar';
+import { ParallaxProvider } from 'react-scroll-parallax';
 function Loading() {
   const router = useRouter();
 
@@ -36,6 +37,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         color="#002222"
         height="4"
       />
+      <ParallaxProvider>
       <SessionProvider session={session}>
         <StoreProvider>
           <PayPalScriptProvider deferLoading={true}>
@@ -49,6 +51,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           </PayPalScriptProvider>
         </StoreProvider>
       </SessionProvider>
+      </ParallaxProvider>
     </>
   );
 }

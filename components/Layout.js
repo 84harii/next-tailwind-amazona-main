@@ -14,7 +14,7 @@ import { RiUser3Line } from "react-icons/ri";
 import { FiShoppingBag } from "react-icons/fi";
 import Marquee from "react-fast-marquee";
 import Confetti from "react-confetti";
-
+import { ParallaxBanner, useParallax, HTMLDivElement } from "react-scroll-parallax"; 
 
 // function getWindowDimensions() {
 //   const { innerWidth: width, innerHeight: height } = window;
@@ -87,6 +87,10 @@ export default function Layout({ title, children }) {
     };
   }, []);
 
+  const parallax = useParallax<HTMLDivElement>({
+    easing: [1, -0.75, 0.5, 1.34],
+    translateX: [0, 100],
+  });
 
   return (
     <>
@@ -101,11 +105,11 @@ export default function Layout({ title, children }) {
           rel="stylesheet"
         />
       </Head>
-
+    
       <ToastContainer position="bottom-center" limit={1} />
       <div className="flex min-h-screen flex-col justify-between ">
         <header>
-          <nav className="h-30 px-4 py-2 max-w-screen-xl mx-auto">
+          <nav className="h-30 px-8 py-2 max-w-screen-xl mx-auto rounded-b-3xl">
 
             <a href="/search?query=" className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-0 text-sm text-lime-700 bg-lime-100 rounded-full dark:bg-lime-100 dark:text-lime-900 hover:bg-lime-200 dark:hover:bg-lime-100">
               <span className="text-xs bg-lime-900 rounded-full text-white px-4 py-1.5 mr-3">Welcome</span> <span className="text-sm font-medium">
@@ -311,22 +315,38 @@ export default function Layout({ title, children }) {
 
 
         </header>
-    
+ 
+          <ParallaxBanner
+      layers={[
+        { image: 'https://react-scroll-parallax.damnthat.tv/img/banner-background.jpg', speed: -60 },
+        {
+          speed: -40,
+          children: (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <h1 className="text-5xl text-white font-bold">RD LABELS</h1>
+            </div>
+          ),
+        },
+        { image: 'https://react-scroll-parallax.damnthat.tv/img/banner-foreground.png', speed: -10 },
+      ]}
+      className="aspect-[2/1]"
+    />
+ 
         <main className="container m-auto mt-24 px-4 max-w-screen-xl">{children}</main>
-      
+
 
         <div className="bg-white relative">
-        <svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
-    <defs>
-      <pattern id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
-        <path d="M100 200V.5M.5 .5H200" fill="none"></path>
-      </pattern>
-    </defs>
-    <svg x="50%" y="-1" class="overflow-visible fill-gray-50">
-      <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z" stroke-width="0"></path>
-    </svg>
-    <rect width="100%" height="100%" stroke-width="0" fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)"></rect>
-  </svg>
+          <svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+            <defs>
+              <pattern id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+                <path d="M100 200V.5M.5 .5H200" fill="none"></path>
+              </pattern>
+            </defs>
+            <svg x="50%" y="-1" className="overflow-visible fill-gray-50">
+              <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z" stroke-width="0"></path>
+            </svg>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)"></rect>
+          </svg>
           <div className="mx-auto max-w-7xl py-8 sm:px-2 sm:py-32 lg:px-4">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-10 gap-x-8 px-5 lg:max-w-none lg:grid-cols-3">
               <div className="text-center sm:flex sm:text-left lg:block lg:text-center">

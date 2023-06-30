@@ -7,7 +7,7 @@ nav {
   width: 100%;
   z-index: 8; 
   -webkit-backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -51,4 +51,7 @@ nav {
     --size: 120px;
     --radius: calc(var(--size) * 20 / 100);
   }
+  .aspect-\[2\/1\] {
+    aspect-ratio: 2/4;
+}
 }
