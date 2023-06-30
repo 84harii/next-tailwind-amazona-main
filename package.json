@@ -20,6 +20,7 @@
     "mongoose": "^7.0.3",
     "next": "13.3.0",
     "next-auth": "^4.22.0",
+    "nextjs-progressbar": "^0.0.16",
     "random-int": "^3.0.0",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
