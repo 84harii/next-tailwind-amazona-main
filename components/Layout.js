@@ -315,7 +315,7 @@ export default function Layout({ title, children }) {
         <main className="container m-auto mt-24 px-4 max-w-screen-xl">{children}</main>
       
 
-        <div className="bg-slate-50 relative">
+        <div className="bg-white relative">
         <svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
     <defs>
       <pattern id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
