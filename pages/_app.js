@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <>
       <NextNProgress
         color="#002222"
-        height="8"
+        height="4"
       />
       <SessionProvider session={session}>
         <StoreProvider>
