@@ -14,7 +14,7 @@ import { RiUser3Line } from "react-icons/ri";
 import { FiShoppingBag } from "react-icons/fi";
 import Marquee from "react-fast-marquee";
 import Confetti from "react-confetti";
-import { ParallaxBanner, useParallax, HTMLDivElement } from "react-scroll-parallax"; 
+// import { ParallaxBanner, useParallax, HTMLDivElement } from "react-scroll-parallax"; 
 
 // function getWindowDimensions() {
 //   const { innerWidth: width, innerHeight: height } = window;
@@ -87,10 +87,10 @@ export default function Layout({ title, children }) {
     };
   }, []);
 
-  const parallax = useParallax<HTMLDivElement>({
-    easing: [1, -0.75, 0.5, 1.34],
-    translateX: [0, 100],
-  });
+  // const parallax = useParallax<HTMLDivElement>({
+  //   easing: [1, -0.75, 0.5, 1.34],
+  //   translateX: [0, 100],
+  // });
 
   return (
     <>
@@ -316,7 +316,7 @@ export default function Layout({ title, children }) {
 
         </header>
  
-          <ParallaxBanner
+          {/* <ParallaxBanner
       layers={[
         { image: 'https://react-scroll-parallax.damnthat.tv/img/banner-background.jpg', speed: -60 },
         {
@@ -330,7 +330,7 @@ export default function Layout({ title, children }) {
         { image: 'https://react-scroll-parallax.damnthat.tv/img/banner-foreground.png', speed: -10 },
       ]}
       className="aspect-[2/1]"
-    />
+    /> */}
  
         <main className="container m-auto mt-24 px-4 max-w-screen-xl">{children}</main>
 
