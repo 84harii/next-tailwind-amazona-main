@@ -134,8 +134,8 @@ export default function ProductScreen(props) {
               <span class="text"> Add to cart</span>
             </button>     
 
-              <Link href={`https://rzp.io//l/${product.slug}`} className="inline-flex items-center justify-center mx-auto mt-4 text-gray-100 hover:text-gray-200 hover:bg-lime-800 bg-lime-900  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                Order Now at<span className="inline-flex items-center justify-center px-2 py-2 w-auto h-4 ml-2 text-xs font-semibold text-lime-900 bg-white rounded-full">
+              <Link href={`https://rzp.io//l/${product.slug}`} className="inline-flex items-center justify-center mx-auto mt-4 text-gray-100 hover:text-gray-200 hover:bg-lime-800 bg-lime-900  font-medium rounded-lg text-sm px-5 py-3 text-center">
+                Order Now with razorpay <span className="inline-flex items-center justify-center px-2 py-2 w-auto h-4 ml-2 text-xs font-semibold text-lime-900 bg-white rounded-full">
                   ₹ {product.price}
                 </span>
               </Link>

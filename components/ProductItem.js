@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React from "react";
+import AtcIcon from "../styles/Icons/atc-icon";
 
 // export default function ProductItem({ product, addToCartHandler }) {
 export default function ProductItem({ product }) {
@@ -28,9 +29,8 @@ export default function ProductItem({ product }) {
         type="button"
         onClick={() => addToCartHandler(product)}
         >
-          <span class="text"> Add to cart</span>
+          <span class="text"> Add to cart  <AtcIcon /> </span>
         </button>
-
       </div>
     </div>
 
