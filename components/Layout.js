@@ -104,12 +104,13 @@ export default function Layout({ title, children }) {
           href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Syne:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"></link>
       </Head>
     
       <ToastContainer position="bottom-center" limit={1} />
       <div className="flex min-h-screen flex-col justify-between ">
         <header>
-          <nav className="h-30 px-8 py-2 max-w-screen-xl mx-auto rounded-b-3xl">
+          <nav className="h-30 py-2 mx-auto rounded-b-3xl container px-4 max-w-screen-xl">
 
             <a href="/search?query=" className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-0 text-sm text-lime-700 bg-lime-100 rounded-full dark:bg-lime-100 dark:text-lime-900 hover:bg-lime-200 dark:hover:bg-lime-100">
               <span className="text-xs bg-lime-900 rounded-full text-white px-4 py-1.5 mr-3">Welcome</span> <span className="text-sm font-medium">
@@ -174,14 +175,14 @@ export default function Layout({ title, children }) {
                         </label>
                         <div className="w-auto flex">
                           <input id="default-search" name="search"
-                            className="block border-none italic w-full text-black rounded-md bg-gray-50 rounded-lg bg-white mx-2 py-2 pl-3 pr-3 leading-5 placeholder-gray-500 text-sm"
+                            className="block border-none italic w-full text-black rounded-md bg-gray-50 rounded-l-lg bg-white mx-2 py-2 pl-3 pr-3 leading-5 placeholder-gray-500 text-sm me-0"
                             placeholder="Search product" type="search" required
                             onChange={(e) => setQuery(e.target.value)} />
 
                           <button
                             type="submit"
                             id="button-addon2"
-                            className="text-lime-800 bg-gray-50 hover:bg-white focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-2 py-2"
+                            className="text-lime-800 mr-2 bg-gray-50 hover:bg-white focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-r-lg text-sm px-2 py-2"
                           >
                             <SearchIcon className="h-4 w-4"></SearchIcon>
                           </button>
@@ -333,7 +334,7 @@ export default function Layout({ title, children }) {
       className="aspect-[2/1]"
     /> */}
  
-        <main className="container m-auto mt-20 px-4 max-w-screen-xl">{children}</main>
+        <main className="container m-auto mt-4 px-4 max-w-screen-xl">{children}</main>
 
 
         <div className="bg-white relative">
