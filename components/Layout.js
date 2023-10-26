@@ -315,6 +315,7 @@ export default function Layout({ title, children }) {
 
 
         </header>
+        <harsh class="mt-24"></harsh>
  
           {/* <ParallaxBanner
       layers={[
@@ -332,7 +333,7 @@ export default function Layout({ title, children }) {
       className="aspect-[2/1]"
     /> */}
  
-        <main className="container m-auto mt-24 px-4 max-w-screen-xl">{children}</main>
+        <main className="container m-auto mt-20 px-4 max-w-screen-xl">{children}</main>
 
 
         <div className="bg-white relative">
