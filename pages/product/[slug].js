@@ -1,13 +1,13 @@
-// import axios from 'axios';
+import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-// import React, { useContext } from 'react';
-// import { toast } from 'react-toastify';
+import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 import Layout from '../../components/Layout';
 import Product from '../../models/Product';
 import db from '../../utils/db';
-// import { Store } from '../../utils/Store'; 
+import { Store } from '../../utils/Store'; 
 import Collapsible from 'react-collapsible';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -25,24 +25,24 @@ export default function ProductScreen(props) {
 
     return () => clearInterval(interval); // Clean up the interval on component unmount
   }, []);
-  // const { state, dispatch } = useContext(Store);
-  // const router = useRouter();
+  const { state, dispatch } = useContext(Store);
+  const router = useRouter();
   if (!product) {
     return <Layout title="Produt Not Found">Produt Not Found</Layout>;
   }
 
-  // const addToCartHandler = async () => {
-  //   const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
-  //   const quantity = existItem ? existItem.quantity + 1 : 1;
-  //   const { data } = await axios.get(`/api/products/${product._id}`);
+  const addToCartHandler = async () => {
+    const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await axios.get(`/api/products/${product._id}`);
 
-  //   if (data.countInStock < quantity) {
-  //     return toast.error('Sorry. Product is out of stock');
-  //   }
+    if (data.countInStock < quantity) {
+      return toast.error('Sorry. Product is out of stock');
+    }
 
-  //   dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
-  //   router.push('/cart');
-  // };
+    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+    router.push('/cart');
+  };
 
   return (
     <Layout title={product.name}>
@@ -120,12 +120,12 @@ export default function ProductScreen(props) {
                 <div>Status</div>
                 <div>{product.countInStock > 0 ? 'In Stock' : 'Unavailable'}</div>
               </div>
-              {/* <button
+              <button
               className="primary-button w-full"
               onClick={addToCartHandler}
             >
               Add to cart
-            </button> */}
+            </button>
               <Link href={`https://rzp.io//l/${product.slug}`} className="inline-flex items-center justify-center mx-auto mt-4 text-gray-100 hover:text-gray-200 hover:bg-lime-800 bg-lime-900  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 Order Now at<span className="inline-flex items-center justify-center px-2 py-2 w-auto h-4 ml-2 text-xs font-semibold text-lime-900 bg-white rounded-full">
                   ₹ {product.price}
