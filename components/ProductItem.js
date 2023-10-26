@@ -24,13 +24,13 @@ export default function ProductItem({ product }) {
         </Link>
         <p className="mb-2 text-xs text-zinc-400 bg-slate-100 py-1 px-2 rounded-lg">{product.brand}</p>
         <p className="font-semibold text-lime-900">₹{product.price}</p>
-        {/* <button
-          className="primary-button mt-2"
-          type="button"
-          onClick={() => addToCartHandler(product)}
+        <button class="button-84 mt-2" 
+        type="button"
+        onClick={() => addToCartHandler(product)}
         >
-          Add to cart
-        </button> */}
+          <span class="text"> Add to cart</span>
+        </button>
+
       </div>
     </div>
 

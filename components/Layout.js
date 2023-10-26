@@ -1,7 +1,7 @@
 import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 import React, { useContext, useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import { Menu } from "@headlessui/react";
@@ -190,7 +190,7 @@ export default function Layout({ title, children }) {
                     </div>
                   </div>
                   <div className="flex items-center z-10 ">
-                    {/* <Link
+                    <Link
                 href="/cart"
                 className="p-2 font-medium text-lime-900 rounded-lg flex justify-center items-center mr-2 bg-lime-50 hover:bg-lime-100 hover:text-lime-900"
               >
@@ -200,7 +200,7 @@ export default function Layout({ title, children }) {
                     {cartItemsCount}
                   </span>
                 )}
-              </Link> */}
+              </Link>
 
                     {status === "loading" ? (
                       "Loading"

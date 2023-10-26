@@ -55,3 +55,27 @@ nav {
     aspect-ratio: 2/4;
 }
 }
+
+
+/* Custom button css */
+ 
+ .button-84 {
+  padding: 12px 26px;
+  color: #fff;
+  border: 0;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 150ms ease-in-out;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+  border-radius: 10px;
+  background-color: #111111;
+  background-image: radial-gradient(76% 151% at 52% -52%, rgba(255, 255, 255, 0.23) 0%, transparent 100%);
+}
+
+.button-84:hover {
+  filter: brightness(1.1);
+}
+
+.button-84:active {
+  transform: scale(.95);
+}
