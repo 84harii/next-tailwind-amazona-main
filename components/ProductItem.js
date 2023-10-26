@@ -25,12 +25,12 @@ export default function ProductItem({ product }) {
         </Link>
         <p className="mb-2 text-xs text-zinc-400 bg-slate-100 py-1 px-2 rounded-lg">{product.brand}</p>
         <p className="font-semibold text-lime-900">₹{product.price}</p>
-        <button class="button-84 mt-2" 
+        {/* <button class="button-84 mt-2" 
         type="button"
         onClick={() => addToCartHandler(product)}
         >
           <span class="text"> Add to cart  <AtcIcon /> </span>
-        </button>
+        </button> */}
       </div>
     </div>
 
