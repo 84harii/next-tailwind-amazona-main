@@ -42,10 +42,10 @@ export default function Home({ products, featuredProducts }) {
 {/* -------- display links banner image here ------- */}
 <img src="https://i.postimg.cc/YCNfBJqh/fpdl-in-portrait-attractive-caucasian-smiling-woman-isolated-white-studio-shot-drinking-water-1258.jpg" width='100%' className="rounded-3xl" alt='banner image' />
 
-      <h1 class="mb-2 mt-8 text-2xl font-bold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-3xl dark:text-grey-900 text-center">Unveil the Best Deal</h1>
+      <h1 class="mb-2 mt-12 text-2xl font-semibold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-3xl dark:text-grey-800 text-center">Unveil the Best Deal</h1>
       <p class="mb-12 text-md font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400 text-center">Discover Quality Goods</p>
 
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4 mt-7">
+      <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 mt-7">
         {products.map((product) => (
           <ProductItem
             product={product}

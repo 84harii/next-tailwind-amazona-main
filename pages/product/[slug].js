@@ -113,7 +113,7 @@ export default function ProductScreen(props) {
             <div className="card p-5 text-right">
               <div className="mb-2 flex justify-between">
                 <div>Price</div>
-                <div className='text-3xl'>₹
+                <div className='text-3xl font-semibold'>₹
                   <CountUp isCounting end={product.price} duration={2} />
                 </div>
               </div>
@@ -127,7 +127,7 @@ export default function ProductScreen(props) {
             >
               Add to cart
             </button> */}
-            <button class="button-84 mt-4" role="button" 
+            {/* <button class="button-84 mt-4" role="button" 
             type="button"
             onClick={addToCartHandler}>
               <div class="button-84__content">
@@ -135,10 +135,12 @@ export default function ProductScreen(props) {
                   Add to cart <FiShoppingBag></FiShoppingBag>
                 </span>
               </div>
-            </button>
+            </button> */}
 
 
-            <button class="button btn-cart mt-4"><span><span>Add to My Bag</span></span></button>
+            <button class="button btn-cart mt-4" role="button" 
+            type="button"
+            onClick={addToCartHandler}><span><span>Add to My Bag</span></span></button>
 
               {/* <Link href={`https://rzp.io//l/${product.slug}`} className="inline-flex items-center justify-center mx-auto mt-4 text-gray-100 hover:text-gray-200 hover:bg-lime-800 bg-lime-900  font-medium rounded-lg text-sm px-5 py-3 text-center">
                 Order Now with razorpay <span className="inline-flex items-center justify-center px-2 py-2 w-auto h-4 ml-2 text-xs font-semibold text-lime-900 bg-white rounded-full">
