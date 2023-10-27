@@ -113,7 +113,7 @@ export default function Layout({ title, children }) {
           <nav className="h-30 py-2 mx-auto rounded-b-3xl container px-4 max-w-screen-xl">
 
             <a href="/search?query=" className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-0 text-sm text-lime-700 bg-lime-100 rounded-full dark:bg-lime-100 dark:text-lime-900 hover:bg-lime-200 dark:hover:bg-lime-100">
-              <span className="text-xs bg-lime-900 rounded-full text-white px-4 py-1.5 mr-3">Welcome</span> <span className="text-sm font-medium">
+              <span className="text-xs bg-lime-900 bg-gradient-to-bl from-lime-900 via-lime-700 to-lime-900  rounded-full text-white px-4 py-1.5 mr-3">Welcome</span> <span className="text-sm font-medium">
                 <Marquee
                   pauseOnHover={true}
                   speed={46}

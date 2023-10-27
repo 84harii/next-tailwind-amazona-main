@@ -24,13 +24,13 @@ export default function ShippingScreen() {
     setValue('address', shippingAddress.address);
     setValue('city', shippingAddress.city);
     setValue('postalCode', shippingAddress.postalCode);
-    setValue('country', shippingAddress.country);
+    setValue('mobilenumber', shippingAddress.mobilenumber);
   }, [setValue, shippingAddress]);
 
-  const submitHandler = ({ fullName, address, city, postalCode, country }) => {
+  const submitHandler = ({ fullName, address, city, postalCode, mobilenumber }) => {
     dispatch({
       type: 'SAVE_SHIPPING_ADDRESS',
-      payload: { fullName, address, city, postalCode, country },
+      payload: { fullName, address, city, postalCode, mobilenumber },
     });
     Cookies.set(
       'cart',
@@ -41,7 +41,7 @@ export default function ShippingScreen() {
           address,
           city,
           postalCode,
-          country,
+          mobilenumber,
         },
       })
     );
@@ -112,16 +112,16 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlhtmlFor="country">Country</label>
+          <label htmlhtmlFor="mobilenumber">Mobile Number</label>
           <input
             className="w-full"
-            id="country"
-            {...register('country', {
-              required: 'Please enter country',
+            id="mobilenumber"
+            {...register('mobilenumber', {
+              required: 'Please enter mobilenumber',
             })}
           />
-          {errors.country && (
-            <div className="text-red-500 ">{errors.country.message}</div>
+          {errors.mobilenumber && (
+            <div className="text-red-500 ">{errors.mobilenumber.message}</div>
           )}
         </div>
         <div className="mb-4 flex justify-between">

@@ -11,8 +11,8 @@ export default function CheckoutWizard({ activeStep = 0 }) {
           text-center 
        ${
          index <= activeStep
-           ? 'border-indigo-500   text-indigo-500'
-           : 'border-gray-400 text-gray-400'
+           ? 'text-zinc-50 bg-gradient-to-bl from-zinc-900 via-zinc-700 to-zinc-900 p-2 mx-1 border-none rounded-2xl my-2 w-full text-sm'
+           : 'bg-gray-100 text-gray-500 p-2 mx-1 border-none rounded-2xl my-2 w-full text-sm'
        }
           
        `}
