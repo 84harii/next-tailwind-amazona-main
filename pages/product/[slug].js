@@ -77,7 +77,8 @@ export default function ProductScreen(props) {
 
         <div>
           <div className="block w-full p-6 bg-zinc-50 rounded-lg">
-            <h1 className="mb-2 text-lg font-bold tracking-tight text-gray-800">{product.name}</h1>
+            <h1 className="mb-2 text-lg font-semibold tracking-tight from-black via-lime-800 to-lime-950 bg-gradient-to-r bg-clip-text text-transparent">{product.name}</h1>
+         
             <p className="font-normal text-gray-700 dark:text-gray-400">
 
               <div className="card text-sm">

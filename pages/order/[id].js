@@ -167,18 +167,17 @@ function OrderScreen() {
       toast.error(getError(err));
     }
   }
-
-  return (
+   return (
     <Layout title={`Order ${orderId}`}>
-      <h1 className="mb-4 text-xl">{`Order ${orderId}`}</h1>
+      <h1 className="my-4 text-md p-2 bg-zinc-100 rounded-3xl text-center">{`Order ${orderId}`}</h1>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
-        <div className="alert-error">{error}</div>
+        <span className="alert-error text-xs">{error}</span>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5 mt-4">
           <div className="overflow-x-auto md:col-span-3">
-            <div className="card  p-5">
+            <div className="card bg-zinc-50  p-5">
               <h2 className="mb-2 text-lg">Shipping Address</h2>
               <div>
                 {shippingAddress.fullName}, {shippingAddress.address},{' '}
@@ -188,29 +187,30 @@ function OrderScreen() {
               {isDelivered ? (
                 <div className="alert-success">Delivered at {deliveredAt}</div>
               ) : (
-                <div className="alert-error">Not delivered</div>
+                <span className="alert-error text-xs">Not delivered</span>
               )}
             </div>
 
-            <div className="card p-5">
+            <div className="card bg-zinc-50 p-5">
               <h2 className="mb-2 text-lg">Payment Method</h2>
-              <div>{paymentMethod}</div>
-              {isPaid ? (
+              <div>{paymentMethod} </div>
+              {/* {isPaid ? (
                 <div className="alert-success">Paid at {paidAt}</div>
               ) : (
-                <div className="alert-error">Not paid</div>
-              )}
+                <span className="alert-error text-xs">Not paid</span>
+              )} */}
             </div>
 
-            <div className="card overflow-x-auto p-5">
+            <div className="card bg-zinc-50 p-5">
               <h2 className="mb-2 text-lg">Order Items</h2>
+            <div className="card bg-white p-5 overflow-x-auto ">
               <table className="min-w-full">
                 <thead className="border-b">
                   <tr>
-                    <th className="px-5 text-left">Item</th>
-                    <th className="    p-5 text-right">Quantity</th>
-                    <th className="  p-5 text-right">Price</th>
-                    <th className="p-5 text-right">Subtotal</th>
+                    <th className="px-5 font-medium text-left">Item</th>
+                    <th className="p-5 font-medium text-right">Quantity</th>
+                    <th className="p-5 font-medium text-right">Price</th>
+                    <th className="p-5 font-medium text-right">Subtotal</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -229,9 +229,10 @@ function OrderScreen() {
                             style={{
                               maxWidth: '100%',
                               height: 'auto',
+                              objectFit:'contain'
                             }}
                           ></Image>
-                          {item.name}
+                          <span className='ms-1 text-xs'>{item.name}</span>
                         </Link>
                       </td>
                       <td className=" p-5 text-right">{item.quantity}</td>
@@ -244,9 +245,10 @@ function OrderScreen() {
                 </tbody>
               </table>
             </div>
+            </div>
           </div>
           <div>
-            <div className="card  p-5">
+            <div className="card bg-zinc-50  p-5">
               <h2 className="mb-2 text-lg">Order Summary</h2>
               <ul>
                 <li>
@@ -268,9 +270,9 @@ function OrderScreen() {
                   </div>
                 </li>
                 <li>
-                  <div className="mb-2 flex justify-between">
+                  <div className="mb-2 flex justify-between px-4 py-2 bg-zinc-800 text-zinc-50 text-lg rounded-3xl">
                     <div>Total</div>
-                    <div>${totalPrice}</div>
+                    <div className='font-bold'>${totalPrice}</div>
                   </div>
                 </li>
                 {!isPaid && (
@@ -289,14 +291,17 @@ function OrderScreen() {
                     {loadingPay && <div>Loading...</div>}
                   </li>
                 )}
-                {session.user.isAdmin && order.isPaid && !order.isDelivered && (
+                {session.user.isAdmin && (
                   <li>
                     {loadingDeliver && <div>Loading...</div>}
                     <button
-                      className="primary-button w-full"
+                      className="primary-button w-auto flex gap-1"
                       onClick={deliverOrderHandler}
                     >
-                      Deliver Order
+                      Mark as Deliver <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+</svg>
+
                     </button>
                   </li>
                 )}

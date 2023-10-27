@@ -43,7 +43,7 @@ textarea {
 }
 
 .alert-error {
-  @apply my-3 rounded-lg bg-red-100 p-3 text-red-700;
+  @apply my-3 rounded-lg bg-red-50 p-3 text-red-700;
 }
 
 .alert-success {
