@@ -110,10 +110,11 @@ export default function Layout({ title, children }) {
       <ToastContainer position="bottom-center" limit={1} />
       <div className="flex min-h-screen flex-col justify-between ">
         <header>
-          <nav className="h-30 py-2 mx-auto rounded-b-3xl container px-4 max-w-screen-xl">
+          <nav className="h-30 py-2 mx-auto rounded-b-3xl container px-2 max-w-screen-xl">
 
-            <a href="/search?query=" className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-0 text-sm text-lime-700 bg-lime-100 rounded-full dark:bg-lime-100 dark:text-lime-900 hover:bg-lime-200 dark:hover:bg-lime-100">
-              <span className="text-xs bg-lime-900 bg-gradient-to-bl from-lime-900 via-lime-700 to-lime-900  rounded-full text-white px-4 py-1.5 mr-3">Welcome</span> <span className="text-sm font-medium">
+            <a href="/search?query=" className="w-100 inline-flex justify-between items-center py-2 px-1 pr-1 mb-0 text-sm text-zinc-200 bg-lime-100 rounded-full bg-zinc-900 bg-gradient-to-bl from-zinc-900 via-zinc-700 to-zinc-900">
+              {/* <span className="text-xs bg-zinc-900 bg-gradient-to-bl from-zinc-900 via-zinc-700 to-zinc-900  rounded-full text-white px-4 py-1.5 mr-3">Welcome</span>  */}
+              <span className="text-sm font-medium">
                 <Marquee
                   pauseOnHover={true}
                   speed={46}
@@ -127,7 +128,7 @@ export default function Layout({ title, children }) {
                   </span>
                 </Marquee>
               </span>
-              <svg aria-hidden="true" className="ml-2 w-20 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
+              <svg aria-hidden="true" className="ml-1 w-20 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
             </a>
 
 
@@ -153,7 +154,7 @@ export default function Layout({ title, children }) {
             />
 
 
-            <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+            <div className="mx-auto max-w-7xl px-0 sm:px-4 lg:px-8">
               <div className="flex h-16 justify-between">
                 <div className="flex lg:px-0">
                   <div className="flex flex-shrink-0 items-center">
@@ -163,7 +164,7 @@ export default function Layout({ title, children }) {
                     </Link>
                   </div>
                 </div>
-                <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
+                <div className="flex flex-1 items-center justify-center ps-2 lg:ml-6 lg:justify-end">
                   <div className="w-full max-w-lg lg:max-w-xs">
                     <div className="relative">
                       <form onSubmit={submitHandler} >
@@ -175,7 +176,7 @@ export default function Layout({ title, children }) {
                         </label>
                         <div className="w-auto flex">
                           <input id="default-search" name="search"
-                            className="block border-none italic w-full text-black rounded-md bg-gray-50 rounded-l-lg bg-white mx-2 py-2 pl-3 pr-3 leading-5 placeholder-gray-500 text-sm me-0"
+                            className="block border-none italic w-full text-black rounded-md bg-gray-50 rounded-l-lg mx-2 py-2 pl-3 pr-3 leading-5 placeholder-gray-500 text-sm me-0"
                             placeholder="Search product" type="search" required
                             onChange={(e) => setQuery(e.target.value)} />
 
@@ -334,7 +335,7 @@ export default function Layout({ title, children }) {
       className="aspect-[2/1]"
     /> */}
  
-        <main className="container m-auto mt-4 px-4 max-w-screen-xl">{children}</main>
+        <main className="container m-auto mt-5 px-2 max-w-screen-xl">{children}</main>
 
 
         <div className="bg-white relative">
