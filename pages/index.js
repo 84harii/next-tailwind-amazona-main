@@ -13,7 +13,7 @@ import AnimatedTextCharacter from "../components/AnimatedTextCharacter";
 import React, { useRef } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { IoIosTrendingUp } from "react-icons/io";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -73,7 +73,7 @@ export default function Home({ products, featuredProducts }) {
             <div class="absolute inset-0">
               <img
                 class="h-full w-full object-cover"
-                src="https://source.unsplash.com/1600x900/?car"
+                src="https://img.freepik.com/free-photo/arrangement-black-friday-shopping-carts-with-copy-space_23-2148667047.jpg?w=1380&t=st=1704627517~exp=1704628117~hmac=87db9f68ff46bac86c9fc6d130e17049763746338026efe131f91854e00fbe17"
                 alt="People working on laptops"
               />
               <div class="absolute inset-0 bg-gradient-to-r from-gray-500 to-gray-600 mix-blend-multiply"></div>
@@ -95,24 +95,7 @@ export default function Home({ products, featuredProducts }) {
                   class="tracking-tight text-inter inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   View Trending Products
-                  <svg
-                    class="-mr-1 ml-3 h-5 w-5 text-gray-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z"
-                      clip-rule="evenodd"
-                    ></path>
-                    <path
-                      fill-rule="evenodd"
-                      d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
+                  <IoIosTrendingUp className="-mr-1 ml-3 h-5 w-5 text-gray-800" /> 
                 </a>
               </div>
             </div>
@@ -123,16 +106,16 @@ export default function Home({ products, featuredProducts }) {
             <div class="absolute inset-0">
               <img
                 class="h-full w-full object-cover"
-                src="https://source.unsplash.com/1600x900/?shopping"
+                src="https://img.freepik.com/free-photo/sale-concept-with-copy-space_23-2148313074.jpg?w=1380&t=st=1704627588~exp=1704628188~hmac=b11e20c1aaa14cc2bd705665be4eb97e05a16ae85482358237b00417498ef231"
                 alt="People working on laptops"
               />
               <div class="absolute inset-0 bg-gradient-to-r from-gray-500 to-gray-600 mix-blend-multiply"></div>
             </div>
             <div class="relative py-16 px-6 sm:py-24 lg:py-32 lg:px-8">
               <h1 class="text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                <span class="block text-white">Unveiling Trends,</span>
+                <span class="block text-white">Elevating Lives!</span>
                 <AnimatedTextCharacter
-                  text="Elevating Lives!"
+                  text="Unveiling Trends"
                   className="text-teal-200"
                 />
               </h1>
@@ -145,24 +128,7 @@ export default function Home({ products, featuredProducts }) {
                   class="tracking-tight text-inter inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   View Trending Products
-                  <svg
-                    class="-mr-1 ml-3 h-5 w-5 text-gray-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z"
-                      clip-rule="evenodd"
-                    ></path>
-                    <path
-                      fill-rule="evenodd"
-                      d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
+                  <IoIosTrendingUp className="-mr-1 ml-3 h-5 w-5 text-gray-800" />
                 </a>
               </div>
             </div>

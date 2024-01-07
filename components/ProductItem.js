@@ -6,8 +6,8 @@ import AtcIcon from "../styles/Icons/atc-icon";
 // export default function ProductItem({ product, addToCartHandler }) {
 export default function ProductItem({ product }) {
   return (
-    <div className="card hover:-translate-y-[10px] transition ease-linear hover:custom-hover-shadow hover:bg-gray-900 group">
-      <Link href={`/product/${product.slug}`}>
+    <div className="card hover:-translate-y-[10px] transition ease-linear hover:custom-hover-shadow group">
+      <Link href={`/product/${product.slug}`} >
         <img
           src={product.image}
           alt={product.name}
@@ -15,16 +15,16 @@ export default function ProductItem({ product }) {
         />
 
         <div
-          className="image-card"
+          className="image-card "
           style={{ backgroundImage: `url(${product.image})` }}
         ></div>
       </Link>
       <div className="flex flex-col items-center justify-center p-5">
         <Link href={`/product/${product.slug}`}>
-          <h2 className="text-sm text-center mb-1 group-hover:text-white">{product.name}</h2>
+          <h2 className="text-sm text-center mb-1">{product.name}</h2>
         </Link>
-        <p className="mb-2 text-xs text-zinc-400 group-hover:text-white group-hover:bg-violet-800 bg-slate-50 py-1 px-2 rounded-lg capitalize">{product.brand}</p>
-        <p className="font-semibold text-violet-900 group-hover:text-white">₹{product.price}</p>
+        <p className="mb-2 text-xs text-zinc-800  bg-slate-100 py-1 px-2 rounded-lg capitalize">{product.brand}</p>
+        <p className="font-semibold text-violet-900">₹{product.price}</p>
         {/* <button class="button-84 mt-2" 
         type="button"
         onClick={() => addToCartHandler(product)}

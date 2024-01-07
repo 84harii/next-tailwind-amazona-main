@@ -48,7 +48,7 @@ nav {
 
 @media (max-width:425px) {
   :root {
-    --size: 120px;
+    --size: 180px;
     --radius: calc(var(--size) * 20 / 100);
   }
   .aspect-\[2\/1\] {
