@@ -22,7 +22,7 @@ a {
 }
 
 .card {
-  @apply mb-5  block   rounded-lg border border-none shadow-none;
+  @apply mb-5  block   rounded-3xl border-0 ;
 }
 
 .primary-button {
@@ -48,4 +48,20 @@ textarea {
 
 .alert-success {
   @apply my-3 rounded-lg bg-green-100 p-2 text-rd;
+}
+.btn-hover {
+  @apply transition ease-linear hover:scale-95;
+}
+
+
+@layer utilities {
+  .w-max-content{
+    width: max-content;
+  }
+  .custom-shadow{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  }
+  .custom-hover-shadow{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
 }

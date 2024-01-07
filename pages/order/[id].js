@@ -8,6 +8,9 @@ import { useEffect, useReducer } from "react";
 import { toast } from "react-toastify";
 import Layout from "../../components/Layout";
 import { getError } from "../../utils/error";
+import { BsUpcScan } from "react-icons/bs";
+import { LiaShippingFastSolid } from "react-icons/lia";
+import { SlCalculator } from "react-icons/sl";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -206,7 +209,12 @@ function OrderScreen() {
   }
   return (
     <Layout title={`Order ${orderId}`}>
-      <h1 className="my-4 text-md p-2 bg-zinc-100 rounded-3xl text-center">{`Order ${orderId}`}</h1>
+      <h1 className="my-4 text-sm w-max-content mx-auto bg-zinc-800 text-white rounded-3xl text-center">
+        <span className="inline-flex items-center px-4 p-2 justfy-center self-center gap-2 tracking-wide">
+          <BsUpcScan className="h-5 w-5" />
+          {`Order ID : ${orderId}`}
+        </span>
+      </h1>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
@@ -214,8 +222,11 @@ function OrderScreen() {
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5 mt-4">
           <div className="overflow-x-auto md:col-span-3">
-            <div className="card bg-zinc-50  p-5">
-              <h2 className="mb-2 text-lg">Shipping Address</h2>
+            <div className="card  p-5">
+              <h2 className="mb-2 text-lg">
+                <LiaShippingFastSolid className="w-6 h-6 inline ml-2 text-zinc-500" />{" "}
+                Shipping Address
+              </h2>
               <div>
                 {shippingAddress.fullName}, {shippingAddress.address},{" "}
                 {shippingAddress.city}, {shippingAddress.postalCode},{" "}
@@ -230,7 +241,7 @@ function OrderScreen() {
               )}
             </div>
 
-            <div className="card bg-zinc-50 p-5">
+            <div className="card p-5">
               <h2 className="mb-2 text-lg">Payment Method</h2>
               <div>{paymentMethod} </div>
               {isPaid ? (
@@ -240,7 +251,7 @@ function OrderScreen() {
               )}
             </div>
 
-            <div className="card bg-zinc-50 p-5">
+            <div className="card p-5">
               <h2 className="mb-2 text-lg">Order Items</h2>
               <div className="card bg-white p-5 overflow-x-auto ">
                 <table className="min-w-full">
@@ -288,31 +299,35 @@ function OrderScreen() {
             </div>
           </div>
           <div>
-            <div className="card bg-zinc-50  p-5">
-              <h2 className="mb-2 text-lg">Order Summary</h2>
+            <div className="custom-shadow p-5 rounded-xl">
+              <h2 className="mb-2 text-lg">
+                Order Summary <SlCalculator className="inline-block ms-1" />
+              </h2>
               <ul>
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Items</div>
-                    <div>${itemsPrice}</div>
+                    <div>₹{itemsPrice}</div>
                   </div>
                 </li>{" "}
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Tax</div>
-                    <div>${taxPrice}</div>
+                    <div>₹{taxPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Shipping</div>
-                    <div>${shippingPrice}</div>
+                    <div>₹{shippingPrice}</div>
                   </div>
                 </li>
                 <li>
-                  <div className="mb-2 flex justify-between px-4 py-2 bg-zinc-800 text-zinc-50 text-lg rounded-3xl">
+                  <div className="mb-2 flex justify-between px-4 py-2 bg-violet-50 text-violet-950 text-lg rounded-3xl">
                     <div>Total</div>
-                    <div className="font-bold">${totalPrice}</div>
+                    <span className="bg-purple-950 text-purple-50 font-bold px-2.5 py-0.5 rounded-full dark:bg-violet-900 dark:text-violet-300 text-lg">
+                      ₹{totalPrice}
+                    </span>
                   </div>
                 </li>
                 {!isPaid && (
@@ -354,33 +369,6 @@ function OrderScreen() {
                         />
                       </svg>
                     </button>
-                  </li>
-                )}
-                {session.user.isAdmin && (
-                  <li>
-                    {!order.isPaid && !loadingPay && (
-                      <button
-                        className="primary-button w-auto flex gap-1"
-                        onClick={markAsPaidHandler}
-                      >
-                        Mark as Paid
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      </button>
-                    )}
-                    {loadingPay && <div>Loading...</div>}
                   </li>
                 )}
               </ul>

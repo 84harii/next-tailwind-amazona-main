@@ -5,8 +5,6 @@ import Layout from "../../components/Layout";
 import { getError } from "../../utils/error";
 import { BsBox2Heart } from "react-icons/bs";
 import { FiArrowUpRight } from "react-icons/fi";
-import { PiSealWarningLight } from "react-icons/pi";
-import { TbDiscountCheck } from "react-icons/tb";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -84,10 +82,14 @@ export default function AdminOrderScreen() {
     return date.toLocaleDateString("en-US", options);
   };
 
+  const calculateMonthTotal = (monthOrders) => {
+    return monthOrders.reduce((total, order) => total + order.totalPrice, 0);
+  };
+
   return (
     <Layout title="Admin Dashboard">
-      <div className="grid md:grid-cols-4 md:gap-5 mt-4">
-        <div class="space-y-1 px-2">
+      <div className="grid md:grid-cols-6 md:gap-5 mt-4">
+        <div class="space-y-1 px-2 sm:block flex sm:mb-0 mb-5">
           <Link
             href="/admin/dashboard"
             class="bg-gray-0 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
@@ -177,7 +179,7 @@ export default function AdminOrderScreen() {
           </Link>
         </div>
 
-        <div className="overflow-x-auto md:col-span-3">
+        <div className="overflow-x-auto md:col-span-5">
           <h1 className="mb-4 text-xl flex items-center gap-2">
             <BsBox2Heart /> Orders
           </h1>
@@ -189,15 +191,27 @@ export default function AdminOrderScreen() {
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full">
-                <thead className="border-b border-dashed	">
+                <thead className="border-b border-dashed">
                   <tr>
-                    <th className="px-4 text-left">ID</th>
-                    <th className="p-4 text-left">USER</th>
-                    <th className="p-4 text-left">DATE</th>
-                    <th className="p-4 text-left">TOTAL</th>
-                    <th className="p-4 text-left">PAID</th>
-                    <th className="p-4 text-left">DELIVERED</th>
-                    <th className="p-4 text-left">ACTION</th>
+                    <th className="px-4 text-left  sm:text-base text-xs">ID</th>
+                    <th className="p-4 text-left  sm:text-base text-xs">
+                      USER
+                    </th>
+                    <th className="p-4 text-left  sm:text-base text-xs">
+                      DATE
+                    </th>
+                    <th className="p-4 text-left  sm:text-base text-xs">
+                      TOTAL
+                    </th>
+                    <th className="p-4 text-left  sm:text-base text-xs">
+                      PAID
+                    </th>
+                    <th className="p-4 text-left  sm:text-base text-xs">
+                      DELIVERED
+                    </th>
+                    <th className="p-4 text-left  sm:text-base text-xs">
+                      ACTION
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -207,30 +221,48 @@ export default function AdminOrderScreen() {
                       getMonthName(order.createdAt) !==
                         getMonthName(orders[index - 1].createdAt) ? (
                         <tr>
-                          <td colSpan="7" className="px-4 py-0.5  bg-gradient-to-r from-slate-100">
-                            {getMonthName(order.createdAt)} 
+                          <td
+                            colSpan="7"
+                            className=" text-sm px-4 py-0.5 bg-gradient-to-r from-slate-100"
+                          >
+                            {getMonthName(order.createdAt)}
+                            <span className=" sm:text-base text-xs ml-2 bg-slate-200 px-1 rounded-sm">
+                              Total Sale of Month: ₹
+                              {calculateMonthTotal(
+                                orders.filter(
+                                  (monthOrder) =>
+                                    getMonthName(monthOrder.createdAt) ===
+                                    getMonthName(order.createdAt)
+                                )
+                              )}
+                            </span>
                           </td>
                         </tr>
                       ) : null}
 
-                      <tr className="border-b border-dashed">
-                        <td className="p-4">
-                          {order._id.substring(20, 24)}
+                      <tr className=" sm:text-base text-xs border-b border-dashed hover:bg-violet-50 group">
+                        <td className=" sm:text-base text-xs px-3 py-5">
                           {order.orderItems.length > 0 && (
-                        <img
-                          src={order.orderItems[0].image} // Assuming the first order item contains the product image
-                          alt={order.orderItems[0].name} // Provide a meaningful alt text
-                          className="w-10 h-10 object-cover rounded-full"
-                        />
-                      )}  
+                            <div class="relative inline-flex items-center p-0 text-sm font-medium text-center text-white  inline-block">
+                              <img
+                                src={order.orderItems[0].image} // Assuming the first order item contains the product image
+                                alt={order.orderItems[0].name} // Provide a meaningful alt text
+                                className=" sm:text-base text-xs w-10 h-10 object-cover rounded-full"
+                              />
+                              <span class="sr-only">Notifications</span>
+                              <div class="absolute inline-flex items-center justify-center w-full h-6 text-xs font-normal text-black bg-slate-100 border-2 border-white rounded-full -top-2 -end-6 dark:border-gray-900">
+                                {order._id.substring(20, 24)}
+                              </div>
+                            </div>
+                          )}
                         </td>
-                        <td className="p-4">
+                        <td className=" sm:text-base text-xs px-3 py-5">
                           {order.user ? order.user.name : "DELETED USER"}
                         </td>
-                        <td className="p-4">
+                        <td className=" sm:text-base text-xs px-3 py-5">
                           <span>{getFormattedDate(order.createdAt)}</span>
                           <br />
-                          <small
+                          {/* <small
                             className={` bg-zinc-100 rounded-full px-2	${
                               isOrderOlderThanTwoDays(order.createdAt)
                                 ? "bg-yellow-100"
@@ -238,27 +270,42 @@ export default function AdminOrderScreen() {
                             }`}
                           >
                             {getElapsedTime(order.createdAt)}
-                          </small>
+                          </small> */}
+
+                          <span class="group-hover:bg-violet-200 group-hover:text-violet-900 bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded me-2 dark:bg-gray-700 dark:text-gray-400">
+                            <svg
+                              class="w-2.5 h-2.5 me-1.5"
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
+                            </svg>
+                            {getElapsedTime(order.createdAt)}
+                          </span>
                         </td>
-                        <td className="p-4">₹{order.totalPrice}</td>
-                        <td className="p-4">
+                        <td className=" sm:text-base text-xs px-3 py-5">
+                          ₹{order.totalPrice}
+                        </td>
+                        <td className=" sm:text-base text-xs px-3 py-5">
                           {order.isPaid
                             ? `${order.paidAt.substring(0, 10)}`
                             : "not paid"}
                         </td>
-                        <td className="p-4">
+                        <td className=" sm:text-base text-xs px-3 py-5">
                           {order.isDelivered ? (
-                            <span className="bg-lime-200 inline-flex items-center gap-1 px-2 rounded-full">
+                            <span className=" sm:text-base text-xs text-green-700">
                               {order.deliveredAt.substring(0, 10)}{" "}
-                              <TbDiscountCheck />
                             </span>
                           ) : (
-                            <span className="flex items-center gap-1">
-                              Not Delivered <PiSealWarningLight />
+                            <span className=" sm:text-base text-xs flex items-center gap-1">
+                              <span class="flex w-2 h-2  bg-yellow-500 rounded-full animate-pulse"></span>{" "}
+                              Pending
                             </span>
                           )}
                         </td>
-                        <td className="p-4">
+                        <td className=" sm:text-base text-xs px-3 py-5">
                           <Link
                             href={`/order/${order._id}`}
                             passHref
@@ -269,7 +316,7 @@ export default function AdminOrderScreen() {
                             }`}
                           >
                             Details{" "}
-                            <FiArrowUpRight className="transform group-hover:translate-x-1/3 group-hover:rotate-45 transition duration-300 h-full" />
+                            <FiArrowUpRight className=" sm:text-base text-xs transform group-hover:translate-x-1/3 group-hover:rotate-45 transition duration-300 h-full" />
                           </Link>
                         </td>
                       </tr>

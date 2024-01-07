@@ -80,7 +80,7 @@ function AdminDashboardScreen() {
   };
   return (
     <Layout title="Admin Dashboard">
-      <div className="grid  md:grid-cols-4 md:gap-5">
+      <div className="grid  md:grid-cols-6 md:gap-5">
 
 
         <div class="space-y-1 px-2">
@@ -117,7 +117,7 @@ function AdminDashboardScreen() {
             Users
           </Link>
         </div>
-        <div className="md:col-span-3">
+        <div className="overflow-x-auto md:col-span-5">
           <h1 className="mb-4 text-xl flex items-center gap-2">Admin Dashboard <TfiStatsUp /></h1>
           {loading ? (
             <div>Loading...</div>

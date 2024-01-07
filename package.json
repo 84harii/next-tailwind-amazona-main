@@ -19,7 +19,7 @@
     "bcryptjs": "^2.4.3",
     "chart.js": "^4.2.1",
     "cloudinary": "^1.35.0",
-    "framer-motion": "^10.17.4",
+    "framer-motion": "^10.17.9",
     "js-cookie": "^3.0.1",
     "mongoose": "^7.0.3",
     "next": "13.3.0",
@@ -37,6 +37,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-scroll-parallax": "^3.4.2",
     "react-toastify": "^9.1.2",
+    "swiper": "^11.0.5",
     "use-count-up": "^3.0.1"
   },
   "devDependencies": {
