@@ -306,3 +306,7 @@ nav {
   stroke-dasharray: 125.6;
   transform: rotate(-90deg);
 }
+
+.overflow-x-auto.md\:col-span-5 td, td span {
+  min-width: 110px;
+}

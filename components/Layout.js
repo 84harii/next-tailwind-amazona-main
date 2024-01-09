@@ -101,8 +101,20 @@ export default function Layout({ title, children }) {
                   gradient={false}
                 >
                   <span>
-                    &nbsp;&nbsp;&nbsp;&nbsp; In pursuit of the finest , Among
-                    our most popular products
+                    <span>
+                      {status === "loading" ? (
+                        "Loading"
+                      ) : session?.user ? (
+                        session.user.isAdmin ? (
+                          <span><i>Proudly Designed By </i>Harii&nbsp;&nbsp;&nbsp;&nbsp;<span class="w-2 h-2  bg-lime-500 rounded-full animate-pulse inline-block"></span>&nbsp;&nbsp;&nbsp;&nbsp; Welcome <b className="bg-violet-900 px-2 leading-none">{session.user.name}</b> to the admin panel&nbsp;&nbsp;&nbsp;&nbsp; <span class="w-2 h-2  bg-lime-500 rounded-full animate-pulse inline-block"></span>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                        ) : (
+                          <>
+                            &nbsp;&nbsp;&nbsp;&nbsp; In pursuit of the finest,
+                            Among our most popular products
+                          </>
+                        )
+                      ) : null}
+                    </span>
                   </span>
                 </Marquee>
               </span>
@@ -447,10 +459,7 @@ export default function Layout({ title, children }) {
 
         <footer class="mt-24 bg-gray-900 sm:mt-12">
           <div class="mx-auto max-w-md overflow-hidden py-12 px-6 sm:max-w-3xl lg:max-w-7xl lg:px-8">
-            <section
-              class=" flex flex-wrap justify-center"
-              aria-label="Footer"
-            >
+            <section class=" flex flex-wrap justify-center" aria-label="Footer">
               <div class="px-5 py-2">
                 <a href="#" class="text-base text-gray-400 hover:text-gray-300">
                   About

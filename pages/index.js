@@ -20,7 +20,7 @@ import "swiper/css/pagination";
 // import required modules
 import { EffectFade, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css/effect-fade";
-import Usps from "../components/Usps";
+import Usps from "../components/Usps"; 
 
 export default function Home({ products, featuredProducts }) {
   const { state, dispatch } = useContext(Store);
@@ -73,7 +73,7 @@ export default function Home({ products, featuredProducts }) {
             <div class="absolute inset-0">
               <img
                 class="h-full w-full object-cover"
-                src="https://img.freepik.com/free-photo/arrangement-black-friday-shopping-carts-with-copy-space_23-2148667047.jpg?w=1380&t=st=1704627517~exp=1704628117~hmac=87db9f68ff46bac86c9fc6d130e17049763746338026efe131f91854e00fbe17"
+                src="https://i.postimg.cc/g2k04L3y/pexels-obi-onyeador-13009437.jpg"
                 alt="People working on laptops"
               />
               <div class="absolute inset-0 bg-gradient-to-r from-gray-500 to-gray-600 mix-blend-multiply"></div>
@@ -83,7 +83,7 @@ export default function Home({ products, featuredProducts }) {
                 <span class="block text-white">Unveiling Trends,</span>
                 <AnimatedTextCharacter
                   text="Elevating Lives!"
-                  className="text-teal-200"
+                  className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-600 text-transparent bg-clip-text"
                 />
               </h1>
               <p class="mx-auto mt-6 max-w-lg text-center text-xl text-violet-100 sm:max-w-3xl">
@@ -98,7 +98,7 @@ export default function Home({ products, featuredProducts }) {
                   <IoIosTrendingUp className="-mr-1 ml-3 h-5 w-5 text-gray-800" /> 
                 </a>
               </div>
-            </div>
+            </div>f
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -106,7 +106,7 @@ export default function Home({ products, featuredProducts }) {
             <div class="absolute inset-0">
               <img
                 class="h-full w-full object-cover"
-                src="https://img.freepik.com/free-photo/sale-concept-with-copy-space_23-2148313074.jpg?w=1380&t=st=1704627588~exp=1704628188~hmac=b11e20c1aaa14cc2bd705665be4eb97e05a16ae85482358237b00417498ef231"
+                src="https://i.postimg.cc/g2k04L3y/pexels-obi-onyeador-13009437.jpg"
                 alt="People working on laptops"
               />
               <div class="absolute inset-0 bg-gradient-to-r from-gray-500 to-gray-600 mix-blend-multiply"></div>
