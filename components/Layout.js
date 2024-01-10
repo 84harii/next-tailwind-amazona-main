@@ -299,27 +299,8 @@ export default function Layout({ title, children }) {
           </nav>
         </header>
 
-        <harsh class="mt-24"></harsh>
- 
-          {/* <ParallaxBanner
-      layers={[
-        { image: 'https://react-scroll-parallax.damnthat.tv/img/banner-background.jpg', speed: -60 },
-        {
-          speed: -40,
-          children: (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <h1 className="text-5xl text-white font-bold">RD LABELS</h1>
-            </div>
-          ),
-        },
-        { image: 'https://react-scroll-parallax.damnthat.tv/img/banner-foreground.png', speed: -10 },
-      ]}
-      className="aspect-[2/1]"
-    /> */}
- 
+        <div class="mt-24"></div>
         <main className="container m-auto mt-5 px-2 max-w-screen-xl">{children}</main>
-
-
         <div className="bg-white relative">
           <svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
             <defs>
@@ -372,7 +353,6 @@ export default function Layout({ title, children }) {
             </div>
           </div>
         </div>
-
         <footer className="flex h-10 justify-center items-center bg-zinc-50  py-2 px-4 font-medium rounded-lg outline-none hover:bg-zinc-100 hover:text-zinc-900 text-zinc-900 text-sm">
           <p><a href="/login">Copyright</a> © <a href="/admin/dashboard">1999-2023 RD</a></p>
         </footer>
